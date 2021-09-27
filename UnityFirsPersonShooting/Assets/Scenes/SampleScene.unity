@@ -2312,7 +2312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1386027503}
-  Speed: 10
+  WalkSpeed: 12
+  RunSpeed: 16
   gravity: -60
   groundCheak: {fileID: 250629502}
   geoundDistance: 0.4
