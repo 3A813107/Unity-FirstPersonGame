@@ -15,10 +15,13 @@ public class PlayerStats : MonoBehaviour
 
     private float Shieldval;
 
+    public PlayerHUD hud;
+
     private void Start()
     {
         Shield = MaxShield;
         Health = maxHealth;
+        hud=GetComponent<PlayerHUD>();
     }
 
     private void Update()
@@ -26,7 +29,8 @@ public class PlayerStats : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.J))
         {
             DamegCheaak(20);
-        }       
+        }
+               
         ShieldRecoveryCheak();
     }
     public void CheckHealth()
@@ -40,6 +44,7 @@ public class PlayerStats : MonoBehaviour
         {
             Health = maxHealth;
         }
+        hud.UpdateHealth(Health,maxHealth);
     }
     public void SetHealth(int healthToSetTo)
     {
@@ -50,10 +55,6 @@ public class PlayerStats : MonoBehaviour
 /////////////////////////////////////////////////////////
     public void DamageShield(int damage)
     {
-        if(damage > Shield)
-        {
-            damage = Shield;
-        }
         Shield -= damage;
         Shieldval = Shield;
         ShieldCount = 0;
@@ -61,6 +62,7 @@ public class PlayerStats : MonoBehaviour
 
     private void ShieldRecoveryCheak()
     {  
+        hud.UpdateShield(Shield,MaxShield);
         if(Shield < MaxShield)
         {            
             ShieldRecovery();
