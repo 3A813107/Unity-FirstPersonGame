@@ -10,6 +10,8 @@ public class Weapon : Item
     public int magazinCount;
     public float range;
     public WeaponType weaponType;
+    public WeaponStyle weaponStyle;
 }
 
 public enum WeaponType{Melee,Postol,AR,Shotgun,Sniper}
+public enum WeaponStyle{Primary,SecondPrimary,Secondary};
