@@ -8,11 +8,13 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField]private LayerMask pickupLayer;
 
     private Camera cam;
+    private Inventory inventory;
     
 
     private void Start()
     {
         cam=GetComponentInChildren<Camera>();
+        inventory = GetComponent<Inventory>();
     }
     private void Update()
     {
@@ -23,6 +25,9 @@ public class PlayerPickUp : MonoBehaviour
             if(Physics.Raycast(ray, out hit,pickupRange,pickupLayer))
             {
                 Debug.Log("Hit:"+hit.transform.name);
+                Weapon newItem = hit.transform.GetComponent<ItemObject>().item as Weapon;
+                inventory.AddItem(newItem);
+                Destroy(hit.transform.gameObject);
             }
         }
     }
