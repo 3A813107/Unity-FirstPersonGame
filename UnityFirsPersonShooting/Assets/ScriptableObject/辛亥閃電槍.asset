@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "\u8F9B\u4EA5\u9583\u96FB\u69CD"
   description: "\u82AD\u6A02\u721B\u69CD"
-  icon: {fileID: 21300000, guid: 1ab9a3ae37aa42b498d29cd2de59eac6, type: 3}
+  icon: {fileID: 21300000, guid: 4e1dae92a6304c844a1d533096c4ce42, type: 3}
   prefab: {fileID: 5195474676153804570, guid: 8087a672a8f4f304dad0df0a83affe52, type: 3}
   magazinSize: 12
-  magazinCount: 64
+  magazinCount: 20
   range: 75
   weaponType: 1
   weaponStyle: 2
