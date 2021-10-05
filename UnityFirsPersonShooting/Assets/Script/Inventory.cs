@@ -5,9 +5,11 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]private Weapon[] weapons;
+    private PlayerHUD hud;
 
     private void Start()
     {
+        hud=GetComponent<PlayerHUD>();
         weapons =new Weapon[3];
     }
 
@@ -19,6 +21,8 @@ public class Inventory : MonoBehaviour
             RemoveItem(newItemIndex);
         }
         weapons[newItemIndex] = newItem;
+
+        hud.UpdateWeaponUI(newItem);
     }
 
     public void RemoveItem(int index)
