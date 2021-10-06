@@ -14,13 +14,19 @@ public class PlayerMovement : MonoBehaviour
     public float geoundDistance = 0.4f;
     public LayerMask groundMask;
 
+    private Vector3 moveDirection;
+
     public float jumpHight = 3f;
 
     Vector3 velocity;
     bool isGrounded;
 
+    [Header("Animation")]
+    private Animator anim;
+
     void Start()
     {
+       anim=GetComponentInChildren<Animator>();
        Speed = WalkSpeed;
     }
     void Update()
@@ -30,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         Gravity();
         Run();
         Move();
+        HandleAnimation();
     }
 
     private void Gravity()
@@ -52,8 +59,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float x= Input.GetAxisRaw("Horizontal");
         float z= Input.GetAxisRaw("Vertical");
-        Vector3 move = transform.right * x + transform.forward*z;
-        controller.Move(move * Speed*Time.deltaTime);
+        moveDirection = transform.right * x + transform.forward*z;
+        controller.Move(moveDirection * Speed*Time.deltaTime);
     }
     private void GroundCheak()
     {
@@ -69,6 +76,22 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             Speed= WalkSpeed;
+        }
+    }
+
+    private void HandleAnimation()
+    {
+        if(moveDirection == Vector3.zero)
+        {
+            anim.SetFloat("Speed",0,0.1f,Time.deltaTime);
+        }
+        else if(moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetFloat("Speed",0.5f,0.1f,Time.deltaTime);
+        }
+        else if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetFloat("Speed",1f,0.1f,Time.deltaTime);
         }
     }
 
