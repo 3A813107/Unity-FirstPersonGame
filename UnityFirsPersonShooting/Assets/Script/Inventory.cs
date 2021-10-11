@@ -7,10 +7,14 @@ public class Inventory : MonoBehaviour
     [SerializeField]private Weapon[] weapons;
     private PlayerHUD hud;
 
+    private EquipmentManager Eqmanager;
+
     private void Start()
     {
-        hud=GetComponent<PlayerHUD>();
         weapons =new Weapon[3];
+        Eqmanager = GetComponent<EquipmentManager>();
+        hud=GetComponent<PlayerHUD>();
+        defaltWeaponSetUp();
     }
 
     public void AddItem(Weapon newItem)
@@ -33,5 +37,11 @@ public class Inventory : MonoBehaviour
     public Weapon GetItem(int index)
     {
         return weapons[index];
+    }
+
+    private void defaltWeaponSetUp()
+    {
+        AddItem(Eqmanager.defaultWeapon);
+        Eqmanager.EquipWeapon(GetItem(2));
     }
 }

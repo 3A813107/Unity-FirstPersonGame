@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16262
+  m_Name: pb_Mesh16264
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -366,6 +366,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137750045}
   m_CullTransparentMesh: 1
+--- !u!1 &178684808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4617280318518362547, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+  m_PrefabInstance: {fileID: 5535687199835374136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &178684811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178684808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15276f314780f3048bf8b14c7ab47b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &218148208 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5195702171004140940, guid: 78f73fc9d81b07a4e869773c27f1e838, type: 3}
@@ -449,7 +466,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16350
+  m_Name: pb_Mesh16352
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4364,6 +4381,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1856390007930771213, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: ebe880343da77f34a9d84acb08939339, type: 2}
+    - target: {fileID: 1856390007930771213, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: currentEquippedWeapon
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5535687199053339592, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
       propertyPath: m_RootOrder
       value: 4

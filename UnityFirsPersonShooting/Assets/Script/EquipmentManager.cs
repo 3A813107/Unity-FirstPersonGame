@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-    private int currentEquippedWeapon = 0;
-    private GameObject currentWeaponObject = null;
-    [SerializeField] private Transform WeaponHolderR = null;
+    public int currentEquippedWeapon = 0;
+    public GameObject currentWeaponObject = null;
+    public Transform WeaponHolderR = null;
     private Animator anim;
     private Inventory inventory;
 
-    [SerializeField]Weapon defaultWeapon = null;
+    public Weapon defaultWeapon = null;
 
     private void Start()
     {
@@ -36,21 +36,19 @@ public class EquipmentManager : MonoBehaviour
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(2));
         }
+
     }
 
 
-    private void EquipWeapon(Weapon weapon)
+    public void EquipWeapon(Weapon weapon)
     {
         currentEquippedWeapon = (int)weapon.weaponStyle;
         anim.SetInteger("weaponType",(int)weapon.weaponType);
-        currentWeaponObject = Instantiate(weapon.prefab,WeaponHolderR);
     }
 
     private void UnEquipWeapon()
     {
         anim.SetTrigger("unequipWeapon");
-        Destroy(currentWeaponObject);
     }
-
 
 }
