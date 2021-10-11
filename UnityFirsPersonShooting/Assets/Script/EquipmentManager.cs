@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
+    private int currentEquippedWeapon = 0;
+    private GameObject currentWeaponObject = null;
     [SerializeField] private Transform WeaponHolderR = null;
     private Animator anim;
     private Inventory inventory;
+
+    [SerializeField]Weapon defaultWeapon = null;
 
     private void Start()
     {
@@ -17,43 +21,36 @@ public class EquipmentManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Alpha1) && currentEquippedWeapon !=0)
         {
-            SetWeaponAnimation(0,WeaponType.AR);
-
-            EquipWeapon(inventory.GetItem(0).prefab,0);
+            UnEquipWeapon();
+            EquipWeapon(inventory.GetItem(0));
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
+        if(Input.GetKeyDown(KeyCode.Alpha2) && currentEquippedWeapon !=1)
         {
-            SetWeaponAnimation(1,WeaponType.Shotgun);
-            SetWeaponAnimation(1,WeaponType.Sniper);
-            EquipWeapon(inventory.GetItem(1).prefab,1);
+            UnEquipWeapon();
+            EquipWeapon(inventory.GetItem(1));
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3))
+        if(Input.GetKeyDown(KeyCode.Alpha3) && currentEquippedWeapon !=2)
         {
-            SetWeaponAnimation(2,WeaponType.Pistol);
-            EquipWeapon(inventory.GetItem(2).prefab,2);
+            UnEquipWeapon();
+            EquipWeapon(inventory.GetItem(2));
         }
     }
 
-    private void SetWeaponAnimation(int weaponStyle,WeaponType weaponType)
+
+    private void EquipWeapon(Weapon weapon)
     {
-        Weapon weapon = inventory.GetItem(weaponStyle);
-        if(weapon != null)
-        {
-            if(weapon.weaponType == weaponType)
-            {
-                anim.SetInteger("weaponType", (int)weaponType);
-            }
-        }
+        currentEquippedWeapon = (int)weapon.weaponStyle;
+        anim.SetInteger("weaponType",(int)weapon.weaponType);
+        currentWeaponObject = Instantiate(weapon.prefab,WeaponHolderR);
     }
 
-    private void EquipWeapon(GameObject weaponObject,int weaponStyle)
+    private void UnEquipWeapon()
     {
-        Weapon weapon = inventory.GetItem(weaponStyle);
-        if(weapon != null)
-        {
-            Instantiate(weaponObject,WeaponHolderR);
-        }
+        anim.SetTrigger("unequipWeapon");
+        Destroy(currentWeaponObject);
     }
+
+
 }
