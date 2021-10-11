@@ -13,5 +13,5 @@ public class Weapon : Item
     public WeaponStyle weaponStyle;
 }
 
-public enum WeaponType{Melee,Postol,AR,Shotgun,Sniper}
+public enum WeaponType{Pistol,AR,Shotgun,Sniper,Melee}
 public enum WeaponStyle{Primary,SecondPrimary,Secondary};

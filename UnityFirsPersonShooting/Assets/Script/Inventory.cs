@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         weapons[index]= null;
     }
 
-    public Weapon GerItem(int index)
+    public Weapon GetItem(int index)
     {
         return weapons[index];
     }
