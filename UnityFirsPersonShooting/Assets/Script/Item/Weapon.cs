@@ -8,6 +8,8 @@ public class Weapon : Item
     public GameObject prefab;
     public int magazinSize;
     public int magazinCount;
+
+    public float fireRate;
     public float range;
     public WeaponType weaponType;
     public WeaponStyle weaponStyle;
