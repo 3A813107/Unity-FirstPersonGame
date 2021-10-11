@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23612
+  m_Name: pb_Mesh16262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -366,6 +366,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137750045}
   m_CullTransparentMesh: 1
+--- !u!4 &141727677 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5535687199704936779, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+  m_PrefabInstance: {fileID: 5535687199835374136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &218148208 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5195702171004140940, guid: 78f73fc9d81b07a4e869773c27f1e838, type: 3}
@@ -449,7 +454,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23700
+  m_Name: pb_Mesh16350
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4364,6 +4369,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2141500674309685619, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f2ff5479914ad444aea104384054363, type: 2}
+    - target: {fileID: 2746518034544958009, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3345177629938810782, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
       propertyPath: pickupRange
       value: 5
@@ -4416,6 +4429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5535687199053339593, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: gravity
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 5535687199053339595, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
       propertyPath: weaponUI
       value: 
@@ -4432,6 +4449,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5535687199053339607, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_Height
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687199053339607, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_Radius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687200091281848, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687200091281848, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687200487010123, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: field of view
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687200487010123, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535687200487010125, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: arms
+      value: 
+      objectReference: {fileID: 141727677}
+    - target: {fileID: 6441065444362455361, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d7c9eec88f4fe7f4794681af40a18bc9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
 --- !u!1001 &7091054446661800785
