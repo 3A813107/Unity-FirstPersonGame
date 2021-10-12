@@ -17,7 +17,8 @@ public class WeaponShooting : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0))
+
+        if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
         {
             Shoot();
         }
@@ -35,6 +36,7 @@ public class WeaponShooting : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
         }
+        Instantiate(currentWeapon.muzzleFlashParticles,manager.currentWeaponFlash);
     }
 
     private void Shoot()
