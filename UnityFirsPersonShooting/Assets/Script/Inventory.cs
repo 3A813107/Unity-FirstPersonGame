@@ -5,15 +5,16 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]private Weapon[] weapons;
-    private PlayerHUD hud;
+
+    private WeaponShooting shooting;
 
     private EquipmentManager Eqmanager;
 
     private void Start()
     {
         weapons =new Weapon[3];
+        shooting = GetComponent<WeaponShooting>();
         Eqmanager = GetComponent<EquipmentManager>();
-        hud=GetComponent<PlayerHUD>();
         defaltWeaponSetUp();
     }
 
@@ -25,8 +26,7 @@ public class Inventory : MonoBehaviour
             RemoveItem(newItemIndex);
         }
         weapons[newItemIndex] = newItem;
-
-        hud.UpdateWeaponUI(newItem);
+        shooting.InitAmmo((int)newItem.weaponStyle,newItem);
     }
 
     public void RemoveItem(int index)

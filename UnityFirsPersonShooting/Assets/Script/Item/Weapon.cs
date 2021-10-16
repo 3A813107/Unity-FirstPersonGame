@@ -8,7 +8,7 @@ public class Weapon : Item
     public GameObject prefab;
     public GameObject muzzleFlashParticles;
     public int magazinSize;
-    public int magazinCount;
+    public int TotalAmmo;
 
     public float fireRate;
     public float range;
