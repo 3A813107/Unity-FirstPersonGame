@@ -10,9 +10,12 @@ public class Inventory : MonoBehaviour
 
     private EquipmentManager Eqmanager;
 
+    private PlayerHUD hud;
+
     private void Start()
     {
         weapons =new Weapon[3];
+        hud = GetComponent<PlayerHUD>();
         shooting = GetComponent<WeaponShooting>();
         Eqmanager = GetComponent<EquipmentManager>();
         defaltWeaponSetUp();
@@ -42,6 +45,6 @@ public class Inventory : MonoBehaviour
     private void defaltWeaponSetUp()
     {
         AddItem(Eqmanager.defaultWeapon);
-        Eqmanager.EquipWeapon(GetItem(2));
+        Eqmanager.EquipDefaltWeapon();        
     }
 }

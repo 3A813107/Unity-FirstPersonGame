@@ -16,17 +16,16 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField]private int secondaryCurrentAmmo;
     [SerializeField]private int secondaryCurrentTotalAmmo;
     /////////////////////////////////////////////////////////////
-    //[SerializeField]private bool primaryMagazineIsEmpty = false;
-    ///[SerializeField]private bool secondprimaryMagazineIsEmpty = false;
-    //[SerializeField]private bool secondaryMagazineIsEmpty = false;
 
     
     private Camera cam;
     private Inventory inventory;
     private EquipmentManager manager;
+    private PlayerHUD hud;
 
     private void Start()
     {
+        hud=GetComponent<PlayerHUD>();
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
         manager = GetComponent<EquipmentManager>();
@@ -98,14 +97,13 @@ public class WeaponShooting : MonoBehaviour
         }        
     }
 
-    private void UseAmmo(int style,int currentAmmoUsed,int currentTotalAmmoUsed)
+    public void UseAmmo(int style,int currentAmmoUsed,int currentTotalAmmoUsed)
 
     {
         if(style == 0)
         {
             if(primaryCurrentAmmo <= 0)
             {
-                //primaryMagazineIsEmpty =true;
                 ChackCanShoot(manager.currentEquippedWeapon);
             }
 
@@ -113,6 +111,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 primaryCurrentAmmo -= currentAmmoUsed;
                 primaryCurrentTotalAmmo -= currentTotalAmmoUsed;
+                hud.UpdateWeaponAmmoUI(primaryCurrentAmmo,primaryCurrentTotalAmmo);
             }   
 
         }
@@ -120,29 +119,53 @@ public class WeaponShooting : MonoBehaviour
         {
             if(secondprimaryCurrentAmmo <= 0)
             {
-                //secondprimaryMagazineIsEmpty =true;
                 ChackCanShoot(manager.currentEquippedWeapon);
             }
             else
             {         
                 secondprimaryCurrentAmmo -= currentAmmoUsed;
                 secondprimaryCurrentTotalAmmo -= currentTotalAmmoUsed;
+                hud.UpdateWeaponAmmoUI(secondprimaryCurrentAmmo,secondprimaryCurrentTotalAmmo);                
             }
         }
         if(style == 2)
         {
             if(secondaryCurrentAmmo <= 0)
             {
-                //secondaryMagazineIsEmpty =true;
                 ChackCanShoot(manager.currentEquippedWeapon);
             }               
             else
             {
                 secondaryCurrentAmmo -= currentAmmoUsed;
                 secondaryCurrentTotalAmmo -= currentTotalAmmoUsed;
+                hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo);                
             }            
 
         }            
+    }
+
+    public void AddAmmo(int style,int currentAmmoAdded,int currentTotalAmmoAdded)
+    {
+        if(style == 0)
+        {
+            primaryCurrentAmmo += currentAmmoAdded;
+            primaryCurrentTotalAmmo += currentTotalAmmoAdded;
+            hud.UpdateWeaponAmmoUI(primaryCurrentAmmo,primaryCurrentTotalAmmo);            
+            
+
+        }
+        if(style == 1)
+        {
+            secondprimaryCurrentAmmo += currentAmmoAdded;
+            secondprimaryCurrentTotalAmmo += currentTotalAmmoAdded;
+            hud.UpdateWeaponAmmoUI(secondprimaryCurrentAmmo,secondprimaryCurrentTotalAmmo); 
+        }
+        if(style == 2)
+        {
+            secondaryCurrentAmmo += currentAmmoAdded;
+            secondaryCurrentTotalAmmo += currentTotalAmmoAdded;
+            hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo); 
+        }   
     }
     private void ChackCanShoot(int style)
     {
@@ -181,10 +204,12 @@ public class WeaponShooting : MonoBehaviour
             if(primaryCurrentTotalAmmo >= ammoToReload_primary)
             {
                 if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
+                {
                     Debug.Log("彈藥是滿的");
-
-                primaryCurrentAmmo += ammoToReload_primary;
-                primaryCurrentTotalAmmo -= ammoToReload_primary;
+                    return;                    
+                }
+                AddAmmo(style,ammoToReload_primary,0);
+                UseAmmo(style,0,ammoToReload_primary);
                 ChackCanShoot(style);
             }
         }
@@ -196,10 +221,12 @@ public class WeaponShooting : MonoBehaviour
             if(secondprimaryCurrentTotalAmmo >= ammoToReload_secondprimary)
             {
                 if(secondprimaryCurrentAmmo == inventory.GetItem(1).magazinSize)
+                {
                     Debug.Log("彈藥是滿的");
-
-                secondprimaryCurrentAmmo += ammoToReload_secondprimary;
-                secondprimaryCurrentTotalAmmo -= ammoToReload_secondprimary;
+                    return;
+                }
+                AddAmmo(style,ammoToReload_secondprimary,0);
+                UseAmmo(style,0,ammoToReload_secondprimary);
                 ChackCanShoot(style);
             }
         }
@@ -211,10 +238,12 @@ public class WeaponShooting : MonoBehaviour
             if(secondaryCurrentTotalAmmo >= ammoToReload_secondary)
             {
                 if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
+                {
                     Debug.Log("彈藥是滿的");
-
-                secondaryCurrentAmmo += ammoToReload_secondary;
-                secondaryCurrentTotalAmmo -= ammoToReload_secondary;
+                    return;
+                }                
+                AddAmmo(style,ammoToReload_secondary,0);
+                UseAmmo(style,0,ammoToReload_secondary);
                 ChackCanShoot(style);
             }
         }

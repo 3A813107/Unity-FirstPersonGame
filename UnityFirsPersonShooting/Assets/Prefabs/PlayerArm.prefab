@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &178684811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617280318518362547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15276f314780f3048bf8b14c7ab47b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5535687199053339606
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +28,7 @@ GameObject:
   - component: {fileID: 5535687199053339596}
   - component: {fileID: 3345177629938810782}
   - component: {fileID: 1856390007930771213}
+  - component: {fileID: 444314569}
   m_Layer: 0
   m_Name: PlayerArm
   m_TagString: Untagged
@@ -155,7 +168,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e414376b36faa3641a82ba2389f858dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEquippedWeapon: 2
+  currentWeaponObject: {fileID: 0}
+  currentWeaponFlash: {fileID: 0}
   WeaponHolderR: {fileID: 5535687199150238971}
+  defaultWeapon: {fileID: 11400000, guid: ebe880343da77f34a9d84acb08939339, type: 2}
+--- !u!114 &444314569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535687199053339606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1af97dd691ae0c4cab040f1cdf13c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShoot: 1
+  primaryCurrentAmmo: 0
+  primaryCurrentTotalAmmo: 0
+  secondprimaryCurrentAmmo: 0
+  secondprimaryCurrentTotalAmmo: 0
+  secondaryCurrentAmmo: 0
+  secondaryCurrentTotalAmmo: 0
 --- !u!1 &5535687199071903457
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +514,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 5f2ff5479914ad444aea104384054363, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 203740621cc454c4587d2c3197666e70, type: 3}
+--- !u!1 &4617280318518362547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 203740621cc454c4587d2c3197666e70, type: 3}
+  m_PrefabInstance: {fileID: 5535687198960893154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5429106190942526217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 203740621cc454c4587d2c3197666e70, type: 3}

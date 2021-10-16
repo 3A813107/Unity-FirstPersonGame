@@ -13,13 +13,16 @@ public class EquipmentManager : MonoBehaviour
     private Inventory inventory;
     private PlayerHUD hud;
 
+    private WeaponShooting shooting;
+
     public Weapon defaultWeapon = null;
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();        
         inventory = GetComponent<Inventory>();
         hud = GetComponent<PlayerHUD>();
+        shooting = GetComponent<WeaponShooting>();
     }
 
     private void Update()
@@ -48,6 +51,14 @@ public class EquipmentManager : MonoBehaviour
         currentEquippedWeapon = (int)weapon.weaponStyle;
         anim.SetInteger("weaponType",(int)weapon.weaponType);
         hud.UpdateWeaponUI(weapon);
+        shooting.AddAmmo((int)weapon.weaponStyle,0,0);
+    }
+    public void EquipDefaltWeapon()
+    {
+        currentEquippedWeapon = (int)defaultWeapon.weaponStyle;
+        anim.SetInteger("weaponType",(int)defaultWeapon.weaponType);
+        hud.UpdateWeaponUI(defaultWeapon);
+        hud.UpdateDefaltWeapon(defaultWeapon);
     }
 
     private void UnEquipWeapon()

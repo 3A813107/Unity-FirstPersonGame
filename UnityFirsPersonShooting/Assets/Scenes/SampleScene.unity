@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18548
+  m_Name: pb_Mesh16314
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -423,23 +423,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17b6e06f71667ac49a0b5607a3e3c6ad, type: 3}
---- !u!1 &178684808 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4617280318518362547, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-  m_PrefabInstance: {fileID: 5535687199835374136}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &178684811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178684808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15276f314780f3048bf8b14c7ab47b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &218148208 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5195702171004140940, guid: 78f73fc9d81b07a4e869773c27f1e838, type: 3}
@@ -456,30 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfb6056124e584449089701dba63f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &444314560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5535687199053339606, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-  m_PrefabInstance: {fileID: 5535687199835374136}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &444314569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444314560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1af97dd691ae0c4cab040f1cdf13c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShoot: 1
-  primaryCurrentAmmo: 0
-  primaryCurrentTotalAmmo: 0
-  secondprimaryCurrentAmmo: 0
-  secondprimaryCurrentTotalAmmo: 0
-  secondaryCurrentAmmo: 0
-  secondaryCurrentTotalAmmo: 0
 --- !u!850595691 &448988733
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -547,7 +506,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18636
+  m_Name: pb_Mesh16402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4462,14 +4421,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1856390007930771213, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: ebe880343da77f34a9d84acb08939339, type: 2}
-    - target: {fileID: 1856390007930771213, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-      propertyPath: currentEquippedWeapon
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5535687199053339592, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
       propertyPath: m_RootOrder
       value: 3
