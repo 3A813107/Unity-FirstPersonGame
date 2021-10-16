@@ -33,7 +33,7 @@ public class EquipmentManager : MonoBehaviour
             EquipWeapon(inventory.GetItem(0));
         }
         if(Input.GetKeyDown(KeyCode.Alpha2) && currentEquippedWeapon !=1 && inventory.GetItem(1) != null)
-        {
+        {          
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(1));
         }
@@ -41,6 +41,7 @@ public class EquipmentManager : MonoBehaviour
         {
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(2));
+            shooting.AddAmmo((int)defaultWeapon.weaponStyle,0,0);
         }
 
     }

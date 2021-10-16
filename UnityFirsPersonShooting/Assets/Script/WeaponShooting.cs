@@ -6,6 +6,7 @@ public class WeaponShooting : MonoBehaviour
 {
     private float lastShootTime=0;
     [SerializeField]private bool canShoot=true;
+    public bool canShoot_swap;
     /////////////////////////////////////////////////////
     [SerializeField]private int primaryCurrentAmmo;
     [SerializeField]private int primaryCurrentTotalAmmo;
@@ -25,6 +26,7 @@ public class WeaponShooting : MonoBehaviour
 
     private void Start()
     {
+        canShoot_swap=false;
         hud=GetComponent<PlayerHUD>();
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
@@ -32,7 +34,6 @@ public class WeaponShooting : MonoBehaviour
     }
     private void Update()
     {
-
         if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
         {
             Shoot();
@@ -63,7 +64,7 @@ public class WeaponShooting : MonoBehaviour
     {
         ChackCanShoot(manager.currentEquippedWeapon);
 
-        if(canShoot)
+        if(canShoot && canShoot_swap)
         {
             Weapon currentWeapon = inventory.GetItem(manager.currentEquippedWeapon);
 
@@ -138,7 +139,7 @@ public class WeaponShooting : MonoBehaviour
             {
                 secondaryCurrentAmmo -= currentAmmoUsed;
                 secondaryCurrentTotalAmmo -= currentTotalAmmoUsed;
-                hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo);                
+                hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo,"∞");                
             }            
 
         }            
@@ -164,7 +165,7 @@ public class WeaponShooting : MonoBehaviour
         {
             secondaryCurrentAmmo += currentAmmoAdded;
             secondaryCurrentTotalAmmo += currentTotalAmmoAdded;
-            hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo); 
+            hud.UpdateWeaponAmmoUI(secondaryCurrentAmmo,secondaryCurrentTotalAmmo,"∞"); 
         }   
     }
     private void ChackCanShoot(int style)
@@ -201,16 +202,26 @@ public class WeaponShooting : MonoBehaviour
         {
             int ammoToReload_primary = inventory.GetItem(0).magazinSize - primaryCurrentAmmo;
 
-            if(primaryCurrentTotalAmmo >= ammoToReload_primary)
+            if(primaryCurrentTotalAmmo >= 0)
             {
                 if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
                 {
                     Debug.Log("彈藥是滿的");
                     return;                    
                 }
-                AddAmmo(style,ammoToReload_primary,0);
-                UseAmmo(style,0,ammoToReload_primary);
-                ChackCanShoot(style);
+                if(primaryCurrentTotalAmmo < ammoToReload_primary)
+                {
+                    AddAmmo(style,primaryCurrentTotalAmmo,0);
+                    UseAmmo(style,0,primaryCurrentTotalAmmo);
+                    ChackCanShoot(style);                    
+                }
+                else
+                {
+                    AddAmmo(style,ammoToReload_primary,0);
+                    UseAmmo(style,0,ammoToReload_primary);
+                    ChackCanShoot(style);
+                }
+
             }
         }
 
@@ -218,16 +229,25 @@ public class WeaponShooting : MonoBehaviour
         {
             int ammoToReload_secondprimary = inventory.GetItem(1).magazinSize - secondprimaryCurrentAmmo;
 
-            if(secondprimaryCurrentTotalAmmo >= ammoToReload_secondprimary)
+            if(secondprimaryCurrentTotalAmmo > 0)
             {
                 if(secondprimaryCurrentAmmo == inventory.GetItem(1).magazinSize)
                 {
                     Debug.Log("彈藥是滿的");
                     return;
                 }
-                AddAmmo(style,ammoToReload_secondprimary,0);
-                UseAmmo(style,0,ammoToReload_secondprimary);
-                ChackCanShoot(style);
+                if(primaryCurrentTotalAmmo < ammoToReload_secondprimary)
+                {
+                    AddAmmo(style,primaryCurrentTotalAmmo,0);
+                    UseAmmo(style,0,primaryCurrentTotalAmmo);
+                    ChackCanShoot(style);                    
+                }
+                else
+                {
+                    AddAmmo(style,ammoToReload_secondprimary,0);
+                    UseAmmo(style,0,ammoToReload_secondprimary);
+                    ChackCanShoot(style);
+                }
             }
         }
 
@@ -235,17 +255,14 @@ public class WeaponShooting : MonoBehaviour
         {
             int ammoToReload_secondary = inventory.GetItem(2).magazinSize - secondaryCurrentAmmo;
 
-            if(secondaryCurrentTotalAmmo >= ammoToReload_secondary)
+            if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
             {
-                if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
-                {
-                    Debug.Log("彈藥是滿的");
-                    return;
-                }                
-                AddAmmo(style,ammoToReload_secondary,0);
-                UseAmmo(style,0,ammoToReload_secondary);
-                ChackCanShoot(style);
-            }
+                Debug.Log("彈藥是滿的");
+                return;
+            }                
+            AddAmmo(style,ammoToReload_secondary,0);
+            UseAmmo(style,0,0);
+            ChackCanShoot(style);
         }
     }
 }

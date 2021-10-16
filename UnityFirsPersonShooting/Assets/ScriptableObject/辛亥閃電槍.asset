@@ -19,7 +19,7 @@ MonoBehaviour:
   muzzleFlashParticles: {fileID: 3081645181283047953, guid: 25e779fc711d0d84495bb42e3741e36f, type: 3}
   magazinSize: 12
   TotalAmmo: 60
-  fireRate: 0.5
+  fireRate: 0.48
   range: 75
   weaponType: 0
   weaponStyle: 2

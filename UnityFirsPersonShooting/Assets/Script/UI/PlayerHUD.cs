@@ -26,6 +26,10 @@ public class PlayerHUD : MonoBehaviour
     {
         weaponUI.UpdateAmmoUI(currentAmmo,currentTotalAmmo);
     }
+    public void UpdateWeaponAmmoUI(int currentAmmo,int currentTotalAmmo,string text)//無限彈藥武器 多載
+    {
+        weaponUI.UpdateAmmoUI(currentAmmo,currentTotalAmmo,text);
+    }
 
     public void UpdateDefaltWeapon(Weapon defaltweapon)
     {

@@ -16,10 +16,10 @@ MonoBehaviour:
   description: "\u4E00\u628A\u6B65\u69CD"
   icon: {fileID: 21300000, guid: b6810e74eb9a6f643a41c7ec5e92640e, type: 3}
   prefab: {fileID: 3100048932905143002, guid: 93c77605cf99dc242a2c0c7ce53d4e12, type: 3}
-  muzzleFlashParticles: {fileID: 3081645181283047953, guid: 25e779fc711d0d84495bb42e3741e36f, type: 3}
+  muzzleFlashParticles: {fileID: 7818500855761983958, guid: 9dad60e3dc1b9894ebe844907d70d6de, type: 3}
   magazinSize: 30
-  TotalAmmo: 150
-  fireRate: 0.2
+  TotalAmmo: 60
+  fireRate: 0.1
   range: 150
   weaponType: 1
   weaponStyle: 0

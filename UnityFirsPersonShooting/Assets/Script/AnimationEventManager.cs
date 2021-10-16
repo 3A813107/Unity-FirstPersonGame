@@ -6,12 +6,20 @@ public class AnimationEventManager : MonoBehaviour
 {
     private Inventory inventory;
 
+    private WeaponShooting shooting;
+
     private EquipmentManager manager;
 
     private void Start()
     {
         inventory = GetComponentInParent<Inventory>();
         manager = GetComponentInParent<EquipmentManager>();
+        shooting = GetComponentInParent<WeaponShooting>();
+    }
+
+    public void canShoot_SwapSwitch()
+    {
+        shooting.canShoot_swap=!shooting.canShoot_swap;
     }
     public void DestroyWeapon()
     {
