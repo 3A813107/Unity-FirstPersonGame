@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0d47192aee7f446a69e5af525fc8ff, type: 3}
+  m_Name: "\u52D5\u80FD\u6B65\u69CD"
+  m_EditorClassIdentifier: 
+  Name: "\u52D5\u80FD\u6B65\u69CD"
+  description: "\u4E00\u628A\u6B65\u69CD"
+  icon: {fileID: 21300000, guid: b6810e74eb9a6f643a41c7ec5e92640e, type: 3}
+  prefab: {fileID: 3100048932905143002, guid: 93c77605cf99dc242a2c0c7ce53d4e12, type: 3}
+  muzzleFlashParticles: {fileID: 0}
+  magazinSize: 30
+  magazinCount: 30
+  fireRate: 1
+  range: 150
+  weaponType: 1
+  weaponStyle: 0
