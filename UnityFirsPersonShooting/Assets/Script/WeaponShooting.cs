@@ -25,6 +25,8 @@ public class WeaponShooting : MonoBehaviour
     private PlayerHUD hud;
     private GunRecoil recoil;
 
+    public AudioSource firesource;
+
     private void Start()
     {
         canShoot_swap=false;
