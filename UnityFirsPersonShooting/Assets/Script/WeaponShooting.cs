@@ -24,8 +24,7 @@ public class WeaponShooting : MonoBehaviour
     private EquipmentManager manager;
     private PlayerHUD hud;
     private GunRecoil recoil;
-
-    public AudioSource firesource;
+    private Animator anim;
 
     private void Start()
     {
@@ -34,6 +33,7 @@ public class WeaponShooting : MonoBehaviour
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
         manager = GetComponent<EquipmentManager>();
+        anim = GetComponentInChildren<Animator>();
         recoil = GetComponentInChildren<GunRecoil>();
     }
     private void Update()
@@ -270,5 +270,8 @@ public class WeaponShooting : MonoBehaviour
             UseAmmo(style,0,0);
             ChackCanShoot(style);
         }
+
+        anim.SetTrigger("reload");
+        manager.currrentAnim.SetTrigger("reload");
     }
 }

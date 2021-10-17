@@ -10,6 +10,7 @@ public class EquipmentManager : MonoBehaviour
     public Transform currentWeaponFlash = null;
     public Transform WeaponHolderR = null;
     private Animator anim;
+    public Animator currrentAnim;
     private Inventory inventory;
     private PlayerHUD hud;
 

@@ -29,5 +29,6 @@ public class AnimationEventManager : MonoBehaviour
     {
        manager.currentWeaponObject = Instantiate(inventory.GetItem(manager.currentEquippedWeapon).prefab,manager.WeaponHolderR);
        manager.currentWeaponFlash = manager.currentWeaponObject.transform.GetChild(0);
+       manager.currrentAnim = manager.currentWeaponObject.GetComponent<Animator>();
     }
 }
