@@ -32,6 +32,7 @@ public class GunRecoil : MonoBehaviour
     {
         recoilX=x;
         recoilY=y;
+        recoilZ=z;
         snappiness=snap;
         returnSpeed=returnspeed;
     }
