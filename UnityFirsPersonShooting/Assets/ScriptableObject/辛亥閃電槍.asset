@@ -21,6 +21,11 @@ MonoBehaviour:
   magazinSize: 12
   TotalAmmo: 60
   fireRate: 0.48
-  range: 75
+  range: 100
   weaponType: 0
   weaponStyle: 2
+  recoilX: -2.5
+  recoilY: 1
+  recoilZ: 0.12
+  snappiness: 8
+  returnSpeed: 2

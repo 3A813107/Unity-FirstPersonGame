@@ -23,6 +23,7 @@ public class WeaponShooting : MonoBehaviour
     private Inventory inventory;
     private EquipmentManager manager;
     private PlayerHUD hud;
+    private GunRecoil recoil;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class WeaponShooting : MonoBehaviour
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
         manager = GetComponent<EquipmentManager>();
+        recoil = GetComponentInChildren<GunRecoil>();
     }
     private void Update()
     {
@@ -74,6 +76,7 @@ public class WeaponShooting : MonoBehaviour
                 Debug.Log("shoot");
                 lastShootTime = Time.time;
                 UseAmmo((int)currentWeapon.weaponStyle,1,0);
+                recoil.RecoilFire();
                 RaycastShoot(currentWeapon);
             }
         }    

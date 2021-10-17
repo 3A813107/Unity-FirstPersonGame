@@ -4421,12 +4421,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 444314569, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-      propertyPath: primaryCurrentAmmo
+    - target: {fileID: 1582412887, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: recoilX
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 444314569, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
-      propertyPath: primaryCurrentTotalAmmo
+    - target: {fileID: 1582412887, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: recoilY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582412887, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: recoilZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582412887, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: snappiness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582412887, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}
+      propertyPath: returnSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5535687199053339592, guid: 3ee8cf581348cd2438d1686f9581d9c6, type: 3}

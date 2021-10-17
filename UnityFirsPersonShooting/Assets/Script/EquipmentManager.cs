@@ -14,6 +14,7 @@ public class EquipmentManager : MonoBehaviour
     private PlayerHUD hud;
 
     private WeaponShooting shooting;
+    private GunRecoil recoil;
 
     public Weapon defaultWeapon = null;
 
@@ -23,6 +24,7 @@ public class EquipmentManager : MonoBehaviour
         inventory = GetComponent<Inventory>();
         hud = GetComponent<PlayerHUD>();
         shooting = GetComponent<WeaponShooting>();
+        recoil = GetComponentInChildren<GunRecoil>();
     }
 
     private void Update()
@@ -51,6 +53,7 @@ public class EquipmentManager : MonoBehaviour
     {
         currentEquippedWeapon = (int)weapon.weaponStyle;
         anim.SetInteger("weaponType",(int)weapon.weaponType);
+        recoil.UpdateRecoiImfo(weapon.recoilX,weapon.recoilY,weapon.recoilZ,weapon.snappiness,weapon.returnSpeed);
         hud.UpdateWeaponUI(weapon);
         shooting.AddAmmo((int)weapon.weaponStyle,0,0);
     }
@@ -58,6 +61,7 @@ public class EquipmentManager : MonoBehaviour
     {
         currentEquippedWeapon = (int)defaultWeapon.weaponStyle;
         anim.SetInteger("weaponType",(int)defaultWeapon.weaponType);
+        recoil.UpdateRecoiImfo(defaultWeapon.recoilX,defaultWeapon.recoilY,defaultWeapon.recoilZ,defaultWeapon.snappiness,defaultWeapon.returnSpeed);
         hud.UpdateWeaponUI(defaultWeapon);
         hud.UpdateDefaltWeapon(defaultWeapon);
     }

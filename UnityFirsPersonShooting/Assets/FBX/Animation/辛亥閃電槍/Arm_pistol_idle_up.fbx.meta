@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f1b045963280bc043a7b6d31fe07e9f2
+guid: a978813d23bf2c444b47469a487b5a6b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 286664236685411320
-    second: Armature|Arm_pistol_idle-up
+      74: -13033944035350800
+    second: Armature|pistol up
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Arm_pistol_idle-up
-      takeName: Armature|Arm_pistol_idle-up
+      name: Armature|pistol up
+      takeName: Armature|pistol up
       internalID: 0
       firstFrame: 0
-      lastFrame: 45
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,15 +59,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13531353
-        functionName: InstantiateWeapon
+      - time: 0.9973281
+        functionName: canShoot_SwapSwitch
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9983463
-        functionName: canShoot_SwapSwitch
+      - time: 0.14508635
+        functionName: InstantiateWeapon
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
