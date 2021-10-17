@@ -17,6 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 4e1dae92a6304c844a1d533096c4ce42, type: 3}
   prefab: {fileID: 5195474676153804570, guid: 8087a672a8f4f304dad0df0a83affe52, type: 3}
   muzzleFlashParticles: {fileID: 3081645181283047953, guid: 25e779fc711d0d84495bb42e3741e36f, type: 3}
+  impactEffect: {fileID: 7210549043672787841, guid: eb72f81116507fa4ca2436e25baa520e, type: 3}
   magazinSize: 12
   TotalAmmo: 60
   fireRate: 0.48

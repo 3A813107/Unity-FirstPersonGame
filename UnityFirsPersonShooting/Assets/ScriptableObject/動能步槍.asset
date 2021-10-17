@@ -17,8 +17,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: b6810e74eb9a6f643a41c7ec5e92640e, type: 3}
   prefab: {fileID: 3100048932905143002, guid: 93c77605cf99dc242a2c0c7ce53d4e12, type: 3}
   muzzleFlashParticles: {fileID: 7818500855761983958, guid: 9dad60e3dc1b9894ebe844907d70d6de, type: 3}
+  impactEffect: {fileID: 2270060462690599322, guid: c06c36ee8dfb67547a2353ef41af5010, type: 3}
   magazinSize: 30
-  TotalAmmo: 60
+  TotalAmmo: 300
   fireRate: 0.1
   range: 150
   weaponType: 1

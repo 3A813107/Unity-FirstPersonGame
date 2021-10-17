@@ -56,6 +56,7 @@ public class WeaponShooting : MonoBehaviour
         if(Physics.Raycast(ray,out hit,currentWeaponRange))
         {
             Debug.Log(hit.transform.name);
+            Instantiate(currentWeapon.impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
         }
         Instantiate(currentWeapon.muzzleFlashParticles,manager.currentWeaponFlash);
     }

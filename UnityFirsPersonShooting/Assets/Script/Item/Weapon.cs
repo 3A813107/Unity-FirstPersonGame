@@ -7,14 +7,14 @@ public class Weapon : Item
 {
     public GameObject prefab;
     public GameObject muzzleFlashParticles;
+    public GameObject impactEffect;
     public int magazinSize;
-    public int TotalAmmo;
-
+    public int TotalAmmo;    
     public float fireRate;
     public float range;
     public WeaponType weaponType;
     public WeaponStyle weaponStyle;
 }
 
-public enum WeaponType{Pistol,AR,Shotgun,Sniper,Melee}
+public enum WeaponType{Pistol,AR,Shotgun,Sniper,Melee};
 public enum WeaponStyle{Primary,SecondPrimary,Secondary};

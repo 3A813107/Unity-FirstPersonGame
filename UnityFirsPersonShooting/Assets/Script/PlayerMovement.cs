@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S))
         {
             Speed=RunSpeed;
         }
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetFloat("Speed",0.5f,0.1f,Time.deltaTime);
         }
-        else if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+        else if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S))
         {
             anim.SetFloat("Speed",1f,0.1f,Time.deltaTime);
         }
