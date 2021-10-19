@@ -9,26 +9,38 @@ public class PlayerPickUp : MonoBehaviour
 
     private Camera cam;
     private Inventory inventory;
+
+    private PlayerHUD hud;
     
 
     private void Start()
     {
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
+        hud = GetComponent<PlayerHUD>();
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        PickUpCheak();
+    }
+
+    private void PickUpCheak()
+    {
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2 ,Screen.height / 2));
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit,pickupRange,pickupLayer))
         {
-            Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2 ,Screen.height / 2));
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit,pickupRange,pickupLayer))
+            Weapon newItem = hit.transform.GetComponent<ItemObject>().item as Weapon;
+            hud.UpdatePickUpUI("撿起 "+newItem.name);
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Hit:"+hit.transform.name);
-                Weapon newItem = hit.transform.GetComponent<ItemObject>().item as Weapon;
                 inventory.AddItem(newItem);
                 Destroy(hit.transform.gameObject);
             }
+        }
+        else
+        {
+            hud.UpdatePickUpUI("");
         }
     }
 }

@@ -7,6 +7,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private ShieldBar shieldBar;
     [SerializeField] private WeaponUI weaponUI;
+    [SerializeField] private PickUpUI pickupUI;
 
     public void UpdateHealth(int currentHealth,int maxHealth)
     {
@@ -34,5 +35,10 @@ public class PlayerHUD : MonoBehaviour
     public void UpdateDefaltWeapon(Weapon defaltweapon)
     {
         weaponUI.UpdateDefaltWeaponUI(defaltweapon.icon,defaltweapon.name,defaltweapon.magazinSize,defaltweapon.TotalAmmo);
+    }
+
+    public void UpdatePickUpUI(string Itemname)
+    {
+        pickupUI.UpdateImfo(Itemname);
     }
 }
