@@ -31,7 +31,7 @@ public class PlayerPickUp : MonoBehaviour
         if(Physics.Raycast(ray, out hit,pickupRange,pickupLayer))
         {
             Weapon newItem = hit.transform.GetComponent<ItemObject>().item as Weapon;
-            hud.UpdatePickUpUI("撿起 "+newItem.name);
+            hud.UpdatePickUpUI("[E] 撿起 "+newItem.name);
             if(Input.GetKeyDown(KeyCode.E))
             {
                 inventory.AddItem(newItem);

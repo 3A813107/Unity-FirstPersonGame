@@ -208,7 +208,7 @@ public class WeaponShooting : MonoBehaviour
         {
             int ammoToReload_primary = inventory.GetItem(0).magazinSize - primaryCurrentAmmo;
 
-            if(primaryCurrentTotalAmmo >= 0)
+            if(primaryCurrentTotalAmmo > 0)
             {
                 if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
                 {
@@ -227,7 +227,8 @@ public class WeaponShooting : MonoBehaviour
                     UseAmmo(style,0,ammoToReload_primary);
                     ChackCanShoot(style);
                 }
-
+                anim.SetTrigger("reload");
+                manager.currrentAnim.SetTrigger("reload");
             }
         }
 
@@ -254,6 +255,8 @@ public class WeaponShooting : MonoBehaviour
                     UseAmmo(style,0,ammoToReload_secondprimary);
                     ChackCanShoot(style);
                 }
+                anim.SetTrigger("reload");
+                manager.currrentAnim.SetTrigger("reload");
             }
         }
 
@@ -269,9 +272,10 @@ public class WeaponShooting : MonoBehaviour
             AddAmmo(style,ammoToReload_secondary,0);
             UseAmmo(style,0,0);
             ChackCanShoot(style);
+            anim.SetTrigger("reload");
+            manager.currrentAnim.SetTrigger("reload");
         }
 
-        anim.SetTrigger("reload");
-        manager.currrentAnim.SetTrigger("reload");
+
     }
 }
