@@ -77,7 +77,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 ////////////////////////////////////////////////////////////
-    private void DamegCheaak(int damage)
+    public void DamegCheaak(int damage)
     {  
         int realDamage = damage - Shield;
         if(realDamage <= 0)

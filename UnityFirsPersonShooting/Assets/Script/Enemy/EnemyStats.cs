@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState : MonoBehaviour
+public class EnemyStats : MonoBehaviour
 {
     [SerializeField] protected int Health;
     public int maxHealth;
     [SerializeField] protected bool isDead;
 
-    [SerializeField] private float damage;
-    [SerializeField] private float attackSpeed;
-    [SerializeField] private bool canAttack = true;
+    [SerializeField] private int damage;
+    public float attackSpeed;
+    //[SerializeField] private bool canAttack = true;
 
     private void Start()
     {
         Health = maxHealth;
         isDead = false;
-        canAttack = true;
+        //canAttack = true;
     }
 
-    public void DealDamage()
+    public void DealDamage(PlayerStats statsToDamege)
     {
-
+        statsToDamege.DamegCheaak(damage);
     }
 
     public void CheckHealth()

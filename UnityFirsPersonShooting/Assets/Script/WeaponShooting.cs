@@ -75,7 +75,6 @@ public class WeaponShooting : MonoBehaviour
 
             if(Time.time > lastShootTime + currentWeapon.fireRate)
             {
-                Debug.Log("shoot");
                 lastShootTime = Time.time;
                 UseAmmo((int)currentWeapon.weaponStyle,1,0);
                 recoil.RecoilFire();
