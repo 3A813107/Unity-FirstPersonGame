@@ -21,16 +21,12 @@ public class PlayerStats : MonoBehaviour
     {
         Shield = MaxShield;
         Health = maxHealth;
+        isDead = false;
         hud=GetComponent<PlayerHUD>();
     }
 
     private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            DamegCheaak(20);
-        }
-               
+    {               
         ShieldRecoveryCheak();
     }
     public void CheckHealth()
