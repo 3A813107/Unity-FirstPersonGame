@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
             if(Time.time >= LastAttackTime + stats.attackSpeed)
             {
-                LastAttackTime = Time.time;
+                LastAttackTime = Time.time;            
                 PlayerStats targetStats = target.GetComponent<PlayerStats>();
                 AttackTaget(targetStats);
             }

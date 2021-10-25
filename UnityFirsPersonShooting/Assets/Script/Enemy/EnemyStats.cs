@@ -21,7 +21,7 @@ public class EnemyStats : MonoBehaviour
 
     public void DealDamage(PlayerStats statsToDamege)
     {
-        statsToDamege.DamegCheaak(damage);
+        //statsToDamege.DamegCheaak(damage);
     }
 
     public void CheckHealth()

@@ -30,17 +30,17 @@ public class EquipmentManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1) && currentEquippedWeapon !=0 && inventory.GetItem(0) != null && shooting.canShoot_swap)
+        if(Input.GetKeyDown(KeyCode.Alpha1) && currentEquippedWeapon !=0 && inventory.GetItem(0) != null && shooting.canShoot_swap && shooting.canReload)
         {
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(0));
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2) && currentEquippedWeapon !=1 && inventory.GetItem(1) != null && shooting.canShoot_swap)
+        if(Input.GetKeyDown(KeyCode.Alpha2) && currentEquippedWeapon !=1 && inventory.GetItem(1) != null && shooting.canShoot_swap && shooting.canReload)
         {          
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(1));
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3) && currentEquippedWeapon !=2&& inventory.GetItem(2) != null && shooting.canShoot_swap)
+        if(Input.GetKeyDown(KeyCode.Alpha3) && currentEquippedWeapon !=2&& inventory.GetItem(2) != null && shooting.canShoot_swap && shooting.canReload)
         {
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(2));

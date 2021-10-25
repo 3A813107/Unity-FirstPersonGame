@@ -7,6 +7,7 @@ public class WeaponShooting : MonoBehaviour
     private float lastShootTime=0;
     [SerializeField]private bool canShoot=true;
     public bool canShoot_swap;
+    public bool canReload;
     /////////////////////////////////////////////////////
     [SerializeField]private int primaryCurrentAmmo;
     [SerializeField]private int primaryCurrentTotalAmmo;
@@ -29,6 +30,7 @@ public class WeaponShooting : MonoBehaviour
     private void Start()
     {
         canShoot_swap=false;
+        canReload=true;
         hud=GetComponent<PlayerHUD>();
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
@@ -69,7 +71,7 @@ public class WeaponShooting : MonoBehaviour
     {
         ChackCanShoot(manager.currentEquippedWeapon);
 
-        if(canShoot && canShoot_swap)
+        if(canShoot && canShoot_swap && canReload)
         {
             Weapon currentWeapon = inventory.GetItem(manager.currentEquippedWeapon);
 
@@ -202,79 +204,80 @@ public class WeaponShooting : MonoBehaviour
     
     private void Reload(int style)
     {
-
-        if(style == 0)
+        if(canReload)
         {
-            int ammoToReload_primary = inventory.GetItem(0).magazinSize - primaryCurrentAmmo;
-
-            if(primaryCurrentTotalAmmo > 0)
+            if(style == 0)
             {
-                if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
+                int ammoToReload_primary = inventory.GetItem(0).magazinSize - primaryCurrentAmmo;
+
+                if(primaryCurrentTotalAmmo > 0)
                 {
-                    Debug.Log("彈藥是滿的");
-                    return;                    
+                    if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
+                    {
+                        Debug.Log("彈藥是滿的");
+                        return;                    
+                    }
+                    if(primaryCurrentTotalAmmo < ammoToReload_primary)
+                    {
+                        AddAmmo(style,primaryCurrentTotalAmmo,0);
+                        UseAmmo(style,0,primaryCurrentTotalAmmo);
+                        ChackCanShoot(style);                    
+                    }
+                    else
+                    {
+                        AddAmmo(style,ammoToReload_primary,0);
+                        UseAmmo(style,0,ammoToReload_primary);
+                        ChackCanShoot(style);
+                    }
+                    anim.SetTrigger("reload");
+                    manager.currrentAnim.SetTrigger("reload");
                 }
-                if(primaryCurrentTotalAmmo < ammoToReload_primary)
-                {
-                    AddAmmo(style,primaryCurrentTotalAmmo,0);
-                    UseAmmo(style,0,primaryCurrentTotalAmmo);
-                    ChackCanShoot(style);                    
-                }
-                else
-                {
-                    AddAmmo(style,ammoToReload_primary,0);
-                    UseAmmo(style,0,ammoToReload_primary);
-                    ChackCanShoot(style);
-                }
-                anim.SetTrigger("reload");
-                manager.currrentAnim.SetTrigger("reload");
             }
-        }
 
-        if(style == 1)
-        {
-            int ammoToReload_secondprimary = inventory.GetItem(1).magazinSize - secondprimaryCurrentAmmo;
-
-            if(secondprimaryCurrentTotalAmmo > 0)
+            if(style == 1)
             {
-                if(secondprimaryCurrentAmmo == inventory.GetItem(1).magazinSize)
+                int ammoToReload_secondprimary = inventory.GetItem(1).magazinSize - secondprimaryCurrentAmmo;
+
+                if(secondprimaryCurrentTotalAmmo > 0)
+                {
+                    if(secondprimaryCurrentAmmo == inventory.GetItem(1).magazinSize)
+                    {
+                        Debug.Log("彈藥是滿的");
+                        return;
+                    }
+                    if(primaryCurrentTotalAmmo < ammoToReload_secondprimary)
+                    {
+                        AddAmmo(style,primaryCurrentTotalAmmo,0);
+                        UseAmmo(style,0,primaryCurrentTotalAmmo);
+                        ChackCanShoot(style);                    
+                    }
+                    else
+                    {
+                        AddAmmo(style,ammoToReload_secondprimary,0);
+                        UseAmmo(style,0,ammoToReload_secondprimary);
+                        ChackCanShoot(style);
+                    }
+                    anim.SetTrigger("reload");
+                    manager.currrentAnim.SetTrigger("reload");
+                }
+            }
+
+            if(style == 2)
+            {
+                int ammoToReload_secondary = inventory.GetItem(2).magazinSize - secondaryCurrentAmmo;
+
+                if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
                 {
                     Debug.Log("彈藥是滿的");
                     return;
-                }
-                if(primaryCurrentTotalAmmo < ammoToReload_secondprimary)
-                {
-                    AddAmmo(style,primaryCurrentTotalAmmo,0);
-                    UseAmmo(style,0,primaryCurrentTotalAmmo);
-                    ChackCanShoot(style);                    
-                }
-                else
-                {
-                    AddAmmo(style,ammoToReload_secondprimary,0);
-                    UseAmmo(style,0,ammoToReload_secondprimary);
-                    ChackCanShoot(style);
-                }
+                }                
+                AddAmmo(style,ammoToReload_secondary,0);
+                UseAmmo(style,0,0);
+                ChackCanShoot(style);
                 anim.SetTrigger("reload");
                 manager.currrentAnim.SetTrigger("reload");
             }
         }
-
-        if(style == 2)
-        {
-            int ammoToReload_secondary = inventory.GetItem(2).magazinSize - secondaryCurrentAmmo;
-
-            if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
-            {
-                Debug.Log("彈藥是滿的");
-                return;
-            }                
-            AddAmmo(style,ammoToReload_secondary,0);
-            UseAmmo(style,0,0);
-            ChackCanShoot(style);
-            anim.SetTrigger("reload");
-            manager.currrentAnim.SetTrigger("reload");
-        }
-
 
     }
 }

@@ -31,4 +31,9 @@ public class AnimationEventManager : MonoBehaviour
        manager.currentWeaponFlash = manager.currentWeaponObject.transform.GetChild(0);
        manager.currrentAnim = manager.currentWeaponObject.GetComponent<Animator>();
     }
+
+    public void SwitchReloading()
+    {
+        shooting.canReload = !shooting.canReload;
+    }
 }
