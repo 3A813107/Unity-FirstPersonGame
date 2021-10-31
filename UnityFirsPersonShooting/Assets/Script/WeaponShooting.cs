@@ -63,6 +63,10 @@ public class WeaponShooting : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Instantiate(currentWeapon.impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            if(hit.transform.tag == "Enemy")
+            {
+                hit.transform.GetComponent<EnemyStats>().Die();
+            }
         }
         Instantiate(currentWeapon.muzzleFlashParticles,manager.currentWeaponFlash);
     }

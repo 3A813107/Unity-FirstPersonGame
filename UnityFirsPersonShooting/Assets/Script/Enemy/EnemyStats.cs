@@ -8,6 +8,8 @@ public class EnemyStats : MonoBehaviour
     public int maxHealth;
     [SerializeField] protected bool isDead;
 
+    private EnemyController controller;
+
     [SerializeField] private int damage;
     public float attackSpeed;
     //[SerializeField] private bool canAttack = true;
@@ -16,6 +18,7 @@ public class EnemyStats : MonoBehaviour
     {
         Health = maxHealth;
         isDead = false;
+        controller = GetComponent<EnemyController>();
         //canAttack = true;
     }
 
@@ -55,6 +58,12 @@ public class EnemyStats : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        if(controller.boomIv[0]!=null)
+        {
+            GameManager.instance.isboomTaking = false;
+            Instantiate(controller.boomIv[0].Prefab,controller.BoomDrop.position,controller.BoomDrop.rotation);
+            GameManager.instance.currentBoomPos = transform.position;
+        }
         Destroy(gameObject);
     }
 }
