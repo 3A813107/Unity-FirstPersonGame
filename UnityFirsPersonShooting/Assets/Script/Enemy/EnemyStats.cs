@@ -12,19 +12,17 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] private int damage;
     public float attackSpeed;
-    //[SerializeField] private bool canAttack = true;
 
     private void Start()
     {
         Health = maxHealth;
         isDead = false;
         controller = GetComponent<EnemyController>();
-        //canAttack = true;
     }
 
     public void DealDamage(PlayerStats statsToDamege)
     {
-        //statsToDamege.DamegCheaak(damage);
+        statsToDamege.DamegCheaak(damage);
     }
 
     public void CheckHealth()
@@ -61,7 +59,7 @@ public class EnemyStats : MonoBehaviour
         if(controller.boomIv[0]!=null)
         {
             GameManager.instance.isboomTaking = false;
-            Instantiate(controller.boomIv[0].Prefab,controller.BoomDrop.position,controller.BoomDrop.rotation);
+            Instantiate(controller.boomIv[0].PickUpPrefab,controller.BoomDrop.position,controller.BoomDrop.rotation);
             GameManager.instance.currentBoomPos = transform.position;
         }
         Destroy(gameObject);

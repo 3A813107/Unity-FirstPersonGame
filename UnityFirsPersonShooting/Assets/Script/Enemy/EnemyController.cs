@@ -6,19 +6,26 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     private NavMeshAgent agent = null;
-    [SerializeField] private Transform mainBuilding;
-    //[SerializeField] private Transform Boom;
-    [SerializeField] private Vector3 currentTarget;
     private EnemyStats stats =null;
-
-    [SerializeField] GameObject BoomObject;
-
-    private bool hasStop = false;
-    private float LastAttackTime = 0;
-
+    [SerializeField] private Transform mainBuilding;
+    [SerializeField] private Transform BoomCarryPos;
+    [SerializeField] private Transform player;
     public Transform BoomDrop;
+    [SerializeField] private Vector3 currentTarget;
 
+    [SerializeField]private bool alreadyAttacked;
+    [SerializeField]private bool PlayerInDetectRange;
+    [SerializeField]private bool PlayerInAttackRange;
+    //private float LastAttackTime = 0;
     public Boom[] boomIv;
+    [SerializeField] private float DetectRange;
+    [SerializeField] private float AttackRange;
+    [SerializeField] private LayerMask wahatIsPlayer;
+
+    
+
+
+
 
     private void Start()
     {
@@ -29,43 +36,18 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        MoveToTaget();
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            stats.Die();
-        }
+        PlayerInDetectRange = Physics.CheckSphere(transform.position,DetectRange,wahatIsPlayer);
+        PlayerInAttackRange = Physics.CheckSphere(transform.position,AttackRange,wahatIsPlayer);
+        if(!PlayerInDetectRange && !PlayerInAttackRange) MoveToMainBuilding();
+        if(PlayerInDetectRange && !PlayerInAttackRange) ChasePlayer();
+        if(PlayerInDetectRange && PlayerInAttackRange) AttackPlayer();
     }
 
-    private void MoveToTaget()
+    private void MoveToMainBuilding()
     {
         TargetCheak();
         agent.SetDestination(currentTarget);  
-        RotateToTarget();
-
-        float disToTarget = Vector3.Distance(currentTarget,transform.position);
-        if(disToTarget <= agent.stoppingDistance)
-        {
-            if(!hasStop)
-            {
-                hasStop = true;
-                LastAttackTime = Time.time;
-            }
-
-            if(Time.time >= LastAttackTime + stats.attackSpeed)
-            {
-                LastAttackTime = Time.time;            
-                //PlayerStats targetStats = target.GetComponent<PlayerStats>();
-                //AttackTaget(targetStats);
-            }
-        }
-        else
-        {
-            if(hasStop)
-            {
-                hasStop = false;
-            }
-        }
-           
+        //RotateToTarget();
     }
 
     private void RotateToTarget()
@@ -75,7 +57,7 @@ public class EnemyController : MonoBehaviour
         transform.rotation = rotation;        
     }
 
-    private void AttackTaget(PlayerStats statsToDamage)
+    private void AttackPlayer(PlayerStats statsToDamage)
     {
         stats.DealDamage(statsToDamage);
     }
@@ -88,6 +70,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log("boom pick up");
             Boom newboom = collider.transform.GetComponent<ItemObject>().item as Boom;
             boomIv[0] = newboom;
+            Instantiate(boomIv[0].Prebab,BoomCarryPos);
             Destroy(collider.gameObject);
         }
     }
@@ -104,4 +87,32 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void ChasePlayer()
+    {
+        agent.SetDestination(player.position);
+    }
+    private void AttackPlayer()
+    {
+        if(!alreadyAttacked)
+        {
+            Debug.Log("attacking");
+            PlayerStats playerStats = player.GetComponent<PlayerStats>();
+            AttackPlayer(playerStats);
+            alreadyAttacked=true;
+            Invoke("ResetAttack",stats.attackSpeed);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, DetectRange);
+    }
 }

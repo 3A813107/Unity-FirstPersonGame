@@ -12,6 +12,7 @@ public class Weapon : Item
     public int TotalAmmo;    
     public float fireRate;
     public float range;
+    public int damage;
     public WeaponType weaponType;
     public WeaponStyle weaponStyle;
 

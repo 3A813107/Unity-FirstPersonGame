@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Boom" , menuName = "Items/Boom")]
 public class Boom : Item
 {
-    public GameObject Prefab;
+    public GameObject PickUpPrefab;
+    public GameObject Prebab;
 }
