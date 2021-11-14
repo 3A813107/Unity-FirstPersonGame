@@ -8,6 +8,8 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private ShieldBar shieldBar;
     [SerializeField] private WeaponUI weaponUI;
     [SerializeField] private PickUpUI pickupUI;
+    [SerializeField] private TargetUI targetUI;
+    public GameObject TargetImfo;
 
     public void UpdateHealth(int currentHealth,int maxHealth)
     {
@@ -40,5 +42,12 @@ public class PlayerHUD : MonoBehaviour
     public void UpdatePickUpUI(string Itemname)
     {
         pickupUI.UpdateImfo(Itemname);
+    }
+
+    public void UpdateTargetImfo(string TargetName,int maxHp,int currentHp,int maxShield,int currentShield)
+    {
+        targetUI.UpdateTargetName(TargetName);
+        targetUI.UpdateTargetHp(maxHp,currentHp);
+        targetUI.UpdateTargetShiled(maxShield,currentShield);
     }
 }

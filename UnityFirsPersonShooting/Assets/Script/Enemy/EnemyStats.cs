@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    [SerializeField] protected int Health;
+    public int Health;
     public int maxHealth;
     [SerializeField] protected bool isDead;
 

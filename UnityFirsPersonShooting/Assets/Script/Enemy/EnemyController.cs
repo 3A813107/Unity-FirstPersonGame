@@ -39,8 +39,8 @@ public class EnemyController : MonoBehaviour
         PlayerInDetectRange = Physics.CheckSphere(transform.position,DetectRange,wahatIsPlayer);
         PlayerInAttackRange = Physics.CheckSphere(transform.position,AttackRange,wahatIsPlayer);
         if(!PlayerInDetectRange && !PlayerInAttackRange) MoveToMainBuilding();
-        if(PlayerInDetectRange && !PlayerInAttackRange) ChasePlayer();
-        if(PlayerInDetectRange && PlayerInAttackRange) AttackPlayer();
+        if(PlayerInDetectRange && !PlayerInAttackRange && GameManager.instance.isboomTaking) ChasePlayer();
+        if(PlayerInDetectRange && PlayerInAttackRange && GameManager.instance.isboomTaking) AttackPlayer();
     }
 
     private void MoveToMainBuilding()

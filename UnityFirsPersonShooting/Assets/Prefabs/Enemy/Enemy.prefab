@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8202555804583464921}
   - component: {fileID: 8202555804583464927}
   - component: {fileID: 8202555804583464926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8202555805556731194}
   - component: {fileID: 8202555805556731192}
   - component: {fileID: 8202555805556731195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,8 @@ GameObject:
   - component: {fileID: 8202555806142210744}
   - component: {fileID: 8202555806142210748}
   - component: {fileID: 8202555806142210749}
-  m_Layer: 0
+  - component: {fileID: 792471228660101120}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -273,11 +274,11 @@ MonoBehaviour:
   PlayerInDetectRange: 0
   PlayerInAttackRange: 0
   boomIv: []
-  DetectRange: 0
-  AttackRange: 0
+  DetectRange: 13.89
+  AttackRange: 4.51
   wahatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!114 &8202555806142210749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +295,20 @@ MonoBehaviour:
   maxHealth: 30
   isDead: 0
   damage: 30
-  attackSpeed: 1
+  attackSpeed: 1.5
+--- !u!114 &792471228660101120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202555806142210747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc07db39fa13b54fbcb6703525eab9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyImfo: {fileID: 11400000, guid: a960b7911218e9d43b946cd20da9eab0, type: 2}
 --- !u!1 &8202555806281885664
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8202555806281885665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoomCarryPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

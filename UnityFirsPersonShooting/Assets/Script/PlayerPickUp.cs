@@ -6,9 +6,12 @@ public class PlayerPickUp : MonoBehaviour
 {
     [SerializeField]private float pickupRange;
     [SerializeField]private LayerMask pickupLayer;
+    [SerializeField]private LayerMask Enemy;
 
     private Camera cam;
     private Inventory inventory;
+
+    private EquipmentManager Manager;
 
     private PlayerHUD hud;
     
@@ -18,10 +21,12 @@ public class PlayerPickUp : MonoBehaviour
         cam=GetComponentInChildren<Camera>();
         inventory = GetComponent<Inventory>();
         hud = GetComponent<PlayerHUD>();
+        Manager=GetComponent<EquipmentManager>();
     }
     private void Update()
     {
         PickUpCheak();
+        TargetCheak();
     }
 
     private void PickUpCheak()
@@ -41,6 +46,23 @@ public class PlayerPickUp : MonoBehaviour
         else
         {
             hud.UpdatePickUpUI("");
+        }
+
+    }
+    private void TargetCheak()
+    {
+        Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2 ,Screen.height / 2));
+        RaycastHit hit;
+        if(Physics.Raycast(ray,out hit,inventory.GetItem(Manager.currentEquippedWeapon).range,Enemy))
+        {
+            hud.TargetImfo.SetActive(true);
+            EnemyImfo newEnemy=hit.transform.GetComponent<EnemyObject>().enemyImfo as EnemyImfo;
+            EnemyStats newEnemyStats=hit.transform.GetComponent<EnemyStats>();
+            hud.UpdateTargetImfo(newEnemy.Name,newEnemyStats.maxHealth,newEnemyStats.Health,0,0);
+        }
+        else
+        {
+            hud.TargetImfo.SetActive(false);
         }
     }
 }
