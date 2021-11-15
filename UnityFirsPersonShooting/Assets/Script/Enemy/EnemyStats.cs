@@ -6,19 +6,24 @@ public class EnemyStats : MonoBehaviour
 {
     public int Health;
     public int maxHealth;
+    public int Shield;
+    public int maxShield;
+
     [SerializeField] protected bool isDead;
 
     private EnemyController controller;
 
     [SerializeField] private int damage;
     public float attackSpeed;
+    private EnemyImfo enemyImfo;
 
     private void Start()
     {
-        Health = maxHealth;
-        isDead = false;
+        enemyImfo=GetComponent<EnemyObject>().enemyImfo as EnemyImfo;
+        EnemySet();
         controller = GetComponent<EnemyController>();
     }
+
 
     public void DealDamage(PlayerStats statsToDamege)
     {
@@ -43,10 +48,30 @@ public class EnemyStats : MonoBehaviour
         CheckHealth();
     }
 
-    public void TackDamge(int damage)
+    public void DamageHealth(int damage)
     {
         int healthAfterDamage = Health - damage;
         SetHealth(healthAfterDamage);
+    }
+
+    public void DamageShield(int damage)
+    {
+        int realShiledDamage=(int)(damage*0.8);//護甲減傷
+        if(realShiledDamage==0)
+            realShiledDamage=1;
+        Shield-=realShiledDamage;
+    }
+
+    public void DamageCheak(int damage)
+    {
+        if(Shield > 0)
+        {
+            DamageShield(damage);
+        }
+        else if(Shield <= 0)
+        {
+            DamageHealth(damage);
+        }
     }
     public void Heal(int heal)
     {
@@ -63,6 +88,17 @@ public class EnemyStats : MonoBehaviour
             GameManager.instance.currentBoomPos = transform.position;
         }
         Destroy(gameObject);
+    }
+
+    private void EnemySet()
+    {
+        maxHealth=enemyImfo.Hp;
+        maxShield=enemyImfo.Shiled;
+        damage = enemyImfo.Damage;
+        attackSpeed=enemyImfo.AttackSpeed;
+        Health = maxHealth;
+        Shield=maxShield;
+        isDead = false;
     }
 }
 

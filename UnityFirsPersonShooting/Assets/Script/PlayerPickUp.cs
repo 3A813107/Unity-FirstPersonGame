@@ -58,7 +58,7 @@ public class PlayerPickUp : MonoBehaviour
             hud.TargetImfo.SetActive(true);
             EnemyImfo newEnemy=hit.transform.GetComponent<EnemyObject>().enemyImfo as EnemyImfo;
             EnemyStats newEnemyStats=hit.transform.GetComponent<EnemyStats>();
-            hud.UpdateTargetImfo(newEnemy.Name,newEnemyStats.maxHealth,newEnemyStats.Health,0,0);
+            hud.UpdateTargetImfo(newEnemy.Name,newEnemyStats.maxHealth,newEnemyStats.Health,newEnemyStats.maxShield,newEnemyStats.Shield);
         }
         else
         {
