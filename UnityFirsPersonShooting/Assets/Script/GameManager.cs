@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public bool isboomTaking = false;
 
+    public int PlayerMoney;
+
     public Vector3 currentBoomPos;
 
     private void Awake()

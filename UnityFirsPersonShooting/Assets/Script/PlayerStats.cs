@@ -9,11 +9,13 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] protected bool isDead;
     [SerializeField]private int Shield;
     public int MaxShield;
+
+    public float ShieldPower=0.8f;
     public float ShieldRecoveryCoolDown;
     public float ShieldRecoveryRate=1;
     private float ShieldCount;
 
-    private float Shieldval;
+    private float Shieldval;//轉整數的代數
 
     public PlayerHUD hud;
 
@@ -52,6 +54,8 @@ public class PlayerStats : MonoBehaviour
     public void DamageShield(int damage)
     {
         Shield -= damage;
+        if(Shield < 0)
+            Shield=0;
         Shieldval = Shield;
         ShieldCount = 0;
     }
@@ -79,15 +83,26 @@ public class PlayerStats : MonoBehaviour
 ////////////////////////////////////////////////////////////
     public void DamegCheaak(int damage)
     {  
-        int realDamage = damage - Shield;
+        int finalDamage;
+        if(Shield > 0)
+        {
+           finalDamage =  (int) (damage * ShieldPower);
+           if(finalDamage==0)
+            finalDamage = 1;
+        }
+        else
+        {
+            finalDamage = damage;
+        }
+        int realDamage = finalDamage - Shield;
         if(realDamage <= 0)
         {
-            DamageShield(damage);
+            DamageShield(finalDamage);
         }
         else if(realDamage > 0)
         {
-            DamageShield(Shield);
             DamageHealth(realDamage);
+            DamageShield(Shield);
         }
     }
     public void DamageHealth(int damage)
@@ -104,6 +119,12 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         isDead = true;
+    }
+
+    public void GetMoney(int Num)
+    {
+        GameManager.instance.PlayerMoney+=Num;
+        hud.UpdateMoneyUI(GameManager.instance.PlayerMoney);
     }
 
 }

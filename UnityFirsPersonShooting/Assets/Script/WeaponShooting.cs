@@ -61,7 +61,7 @@ public class WeaponShooting : MonoBehaviour
 
         if(Physics.Raycast(ray,out hit,currentWeaponRange))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             Instantiate(currentWeapon.impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             if(hit.transform.tag == "Enemy")
             {
