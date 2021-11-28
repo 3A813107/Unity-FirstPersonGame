@@ -127,8 +127,9 @@ public class EnemyStats : MonoBehaviour
 
     private void DamageTextSet(int damage,Color color)
     {
+        float font = Vector3.Distance(transform.position,player.position);
         DamageText damageTextUI = Instantiate(damageText,damageTextPos.position,Quaternion.identity).GetComponent<DamageText>();
-        damageTextUI.SetDamageText(damage,color);
+        damageTextUI.SetDamageText(damage,color,font);
     }
 }
 

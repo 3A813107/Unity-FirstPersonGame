@@ -20,7 +20,7 @@ MonoBehaviour:
   impactEffect: {fileID: 7210549043672787841, guid: eb72f81116507fa4ca2436e25baa520e, type: 3}
   magazinSize: 12
   TotalAmmo: 60
-  fireRate: 0.48
+  fireRate: 0.35
   range: 100
   damage: 5
   weaponType: 0

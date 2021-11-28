@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: 
   description: 
   icon: {fileID: 0}
-  PickUpPrefab: {fileID: 8623497388567283636, guid: 2ca336ea15fcca44bb9fede3fab43632, type: 3}
-  Prebab: {fileID: 8623497388567283636, guid: de27518d6788c884b8b517238034c0af, type: 3}
+  PickUpPrefab: {fileID: 235600937316505523, guid: f20c3d7394606494da48bb1c0b234545, type: 3}
+  Prebab: {fileID: 235600937316505523, guid: b4cf1c735b6ba1849a675c431d627849, type: 3}

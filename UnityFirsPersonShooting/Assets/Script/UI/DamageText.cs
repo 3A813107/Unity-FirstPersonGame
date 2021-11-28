@@ -10,6 +10,8 @@ public class DamageText : MonoBehaviour
     public float minDist = 2f;
     public float maxDist = 3f;
 
+    public float sizeRate;
+
     private Vector3 iniPos;
     private Vector3 targetPos;
     private float timer;
@@ -41,8 +43,9 @@ public class DamageText : MonoBehaviour
         transform.localScale = Vector3.Lerp(Vector3.zero,Vector3.one,Mathf.Sign(timer/lifetime));
     }
 
-    public void SetDamageText(int damage , Color color)
+    public void SetDamageText(int damage , Color color,float font)
     {
+        text.fontSize =(int)(text.fontSize + font * sizeRate);
         text.color=color;
         text.text=damage.ToString();
     }
