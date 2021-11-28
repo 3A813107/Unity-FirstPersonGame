@@ -119,6 +119,8 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        //Destroy(gameObject);
+        //GameManager.instance.SpawnPlayer();
     }
 
     public void GetMoney(int Num)

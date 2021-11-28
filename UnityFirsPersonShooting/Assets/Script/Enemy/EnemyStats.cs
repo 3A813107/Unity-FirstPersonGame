@@ -107,7 +107,7 @@ public class EnemyStats : MonoBehaviour
         if(controller.boomIv[0]!=null)
         {
             GameManager.instance.isboomTaking = false;
-            Instantiate(controller.boomIv[0].PickUpPrefab,controller.BoomDrop.position,controller.BoomDrop.rotation);
+            Instantiate(controller.boomIv[0].PickUpPrefab,controller.BoomDrop.position,Quaternion.identity);
             GameManager.instance.currentBoomPos = transform.position;
         }
         playerStats.GetMoney(100);

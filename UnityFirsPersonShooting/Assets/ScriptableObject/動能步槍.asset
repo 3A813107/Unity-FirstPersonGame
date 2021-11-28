@@ -25,8 +25,8 @@ MonoBehaviour:
   damage: 3
   weaponType: 1
   weaponStyle: 0
-  recoilX: -2
-  recoilY: 2
+  recoilX: -1
+  recoilY: 1
   recoilZ: 0.35
   snappiness: 6
   returnSpeed: 2

@@ -95,7 +95,6 @@ public class EnemyController : MonoBehaviour
     {
         if(!alreadyAttacked)
         {
-            Debug.Log("attacking");
             PlayerStats playerStats = player.GetComponent<PlayerStats>();
             AttackPlayer(playerStats);
             alreadyAttacked=true;

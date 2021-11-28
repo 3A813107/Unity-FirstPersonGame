@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public Vector3 currentBoomPos;
 
+    public GameObject playerPrefab;
+    public Transform SpawnPoint;
+
     private void Awake()
     {
         if(instance != null)
@@ -25,9 +28,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SpawnPlayer()
     {
-        
+        Instantiate(playerPrefab, SpawnPoint.position,Quaternion.identity);
     }
 
 }
