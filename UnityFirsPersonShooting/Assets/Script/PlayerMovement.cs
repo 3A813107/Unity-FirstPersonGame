@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    #region 
+    public static Transform instance;
+    private void Awake()
+    {
+        instance = this.transform;
+    }
+
+    #endregion
+
+
     public CharacterController controller;
     public float WalkSpeed = 12f;
     public float RunSpeed=20f;

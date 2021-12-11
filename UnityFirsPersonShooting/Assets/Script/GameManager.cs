@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public Transform SpawnPoint;
 
+    public Transform mainbuild;
+
     private void Awake()
     {
         if(instance != null)

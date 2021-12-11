@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        player = PlayerMovement.instance;
+        mainBuilding = GameManager.instance.mainbuild;
         agent = GetComponent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
         boomIv = new Boom[1];
@@ -67,7 +69,7 @@ public class EnemyController : MonoBehaviour
         if(collider.gameObject.tag == "Boom")
         {
             GameManager.instance.isboomTaking = true;
-            Debug.Log("boom pick up");
+            //Debug.Log("boom pick up");
             Boom newboom = collider.transform.GetComponent<ItemObject>().item as Boom;
             boomIv[0] = newboom;
             Instantiate(boomIv[0].Prebab,BoomCarryPos);

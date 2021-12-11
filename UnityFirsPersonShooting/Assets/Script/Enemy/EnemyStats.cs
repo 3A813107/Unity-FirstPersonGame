@@ -26,6 +26,7 @@ public class EnemyStats : MonoBehaviour
 
     private void Start()
     {
+        player=PlayerMovement.instance;
         enemyImfo=GetComponent<EnemyObject>().enemyImfo as EnemyImfo;
         EnemySet();
         playerStats=player.GetComponent<PlayerStats>();
@@ -112,6 +113,11 @@ public class EnemyStats : MonoBehaviour
         }
         playerStats.GetMoney(100);
         Destroy(gameObject);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     private void EnemySet()
