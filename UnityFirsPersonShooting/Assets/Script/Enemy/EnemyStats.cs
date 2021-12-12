@@ -105,6 +105,7 @@ public class EnemyStats : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        GameManager.instance.WaveKillNum++;
         if(controller.boomIv[0]!=null)
         {
             GameManager.instance.isboomTaking = false;

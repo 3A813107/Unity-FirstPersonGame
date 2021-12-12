@@ -23,18 +23,29 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private Transform[] spawnPoint;
     [SerializeField] private List<EnemyStats> enemyList;
+    [SerializeField] private LevelHUD hud;
+    [SerializeField] private int killNum = 0;
+    [SerializeField] private  int TotalKillNum=0;
+    //[SerializeField] private int WavTotalEnemy;
 
 
     private void Start()
     {
+        hud = GetComponent<LevelHUD>(); 
         waveCountdown = timeBetweenWave;
         isLevelEnd = false;
         isStageEnemies = false;
         currentWave = 0;
+        hud.UpdateWaveUI(waves.Length,currentWave+1);
+        hud.UpdateWaveBar(CalculateTotalEnemy(),CalculateTotalEnemy());
     }
 
     private void Update()
     {
+        if(stat != SpawnStat.COUNTING)
+        {
+            CalculateKillNum();
+        }      
         if(stat == SpawnStat.WATTING)
         {
             if(!EnemiesAllDead())
@@ -44,12 +55,14 @@ public class EnemySpawner : MonoBehaviour
         }
         if(!isLevelEnd)
         {
-            if(waveCountdown <= 0)
+            if(waveCountdown <= 1)
             {
+                hud.WaveTime.SetActive(false);
                 stat=SpawnStat.SPAWNING;
             }
             else
-                waveCountdown -= Time.deltaTime;       
+                waveCountdown -= Time.deltaTime;
+            WaveTimeCheak();         
         }
 
         if(stat == SpawnStat.SPAWNING)
@@ -86,8 +99,19 @@ public class EnemySpawner : MonoBehaviour
         Transform randomSpawner = spawnPoint[randomint];
         GameObject newEnemy =  Instantiate(enemy,randomSpawner.position,randomSpawner.rotation);
         EnemyStats newEnemyStats = newEnemy.GetComponent<EnemyStats>();
-
         enemyList.Add(newEnemyStats);
+    }
+
+    private int CalculateKillNum()
+    {
+        int i = 0;
+        foreach(EnemyStats enemy in enemyList)
+        {
+            if(enemy.IsDead())
+                i++;
+                hud.UpdateWaveBar(CalculateTotalEnemy()-GameManager.instance.WaveKillNum,CalculateTotalEnemy());
+        }
+        return killNum;
     }
 
     private bool EnemiesAllDead()
@@ -135,10 +159,10 @@ public class EnemySpawner : MonoBehaviour
     private void CompleteWave()
     {
         Debug.Log("WAVE COMPLETED");
-
         stat = SpawnStat.COUNTING;
         waveCountdown = timeBetweenWave;
-
+        TotalKillNum += GameManager.instance.WaveKillNum;
+        GameManager.instance.WaveKillNum = 0 ;
         if(currentWave + 1 > waves.Length -1)
         {
             LevelEnd();
@@ -148,7 +172,10 @@ public class EnemySpawner : MonoBehaviour
             isStageEnemies = false;
             stageCountdown = 0;
             stageEnemiesCountdown = 0;
-            currentWave ++;            
+            currentWave ++;
+            hud.UpdateWaveBar(CalculateTotalEnemy(),CalculateTotalEnemy());
+            hud.UpdateWaveUI(waves.Length,currentWave+1);
+            hud.WaveTime.SetActive(true);            
         }
     }
     private void LevelEnd()
@@ -156,5 +183,30 @@ public class EnemySpawner : MonoBehaviour
         isLevelEnd = true;
         currentWave = 0;
         Debug.Log("通關");
+    }
+
+    private void WaveTimeCheak()
+    {
+        if(waveCountdown <=6)
+        {
+            hud.UpdateWaveTime((int)waveCountdown,Color.red);
+        }
+        else
+        {
+            hud.UpdateWaveTime((int)waveCountdown,Color.white);
+        }
+    }
+
+    private int CalculateTotalEnemy()
+    {
+        int WavTotalEnemy = 0;
+        for(int i = 0;i < waves[currentWave].stage.Length;i++)
+        {
+            for(int j = 0;j < waves[currentWave].stage[i].stageEnemies.Length;j++)
+            {
+                WavTotalEnemy+=waves[currentWave].stage[i].stageEnemies[j].enemiesAmount;
+            }
+        }
+        return WavTotalEnemy;
     }
 }

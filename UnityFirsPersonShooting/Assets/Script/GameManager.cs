@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
     public bool isboomTaking = false;
 
     public int PlayerMoney;
+    public int WaveKillNum;
 
     public Vector3 currentBoomPos;
-
+    
     public GameObject playerPrefab;
     public Transform SpawnPoint;
-
     public Transform mainbuild;
 
     private void Awake()
