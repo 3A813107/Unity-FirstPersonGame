@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public bool isboomTaking = false;
 
+    public static bool isPause = false;
+
     public int PlayerMoney;
     public int WaveKillNum;
 

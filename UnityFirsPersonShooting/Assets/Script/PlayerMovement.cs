@@ -41,12 +41,15 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if(!GameManager.isPause)
+        {
+            Jump();
+            Run();
+            Move();
+            HandleAnimation();            
+        }
         GroundCheak();
-        Jump();
         Gravity();
-        Run();
-        Move();
-        HandleAnimation();
     }
 
     private void Gravity()

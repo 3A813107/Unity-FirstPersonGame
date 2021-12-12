@@ -40,12 +40,12 @@ public class WeaponShooting : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift) && !GameManager.isPause)
         {
             Shoot();
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R) && !GameManager.isPause)
         {
             Reload(manager.currentEquippedWeapon);
         }

@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoint;
     [SerializeField] private List<EnemyStats> enemyList;
     [SerializeField] private LevelHUD hud;
+    [SerializeField] private WinScreenBehaviour winUI;
     [SerializeField] private int killNum = 0;
     [SerializeField] private  int TotalKillNum=0;
     //[SerializeField] private int WavTotalEnemy;
@@ -183,6 +184,7 @@ public class EnemySpawner : MonoBehaviour
         isLevelEnd = true;
         currentWave = 0;
         Debug.Log("通關");
+        winUI.Win();
     }
 
     private void WaveTimeCheak()
