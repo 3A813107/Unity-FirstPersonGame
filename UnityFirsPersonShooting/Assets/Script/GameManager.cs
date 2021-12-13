@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
     public int WaveKillNum;
 
     public Vector3 currentBoomPos;
+    public Vector3 BoomPos;
     
     public GameObject playerPrefab;
     public Transform SpawnPoint;
-    public Transform mainbuild;
 
     private void Awake()
     {
@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        BoomPos=currentBoomPos;
     }
 
     public void SpawnPlayer()

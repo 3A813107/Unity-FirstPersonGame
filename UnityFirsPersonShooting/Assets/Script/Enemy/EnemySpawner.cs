@@ -46,6 +46,13 @@ public class EnemySpawner : MonoBehaviour
         if(stat != SpawnStat.COUNTING)
         {
             CalculateKillNum();
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.F1))
+            {
+                waveCountdown = 5 ;
+            }
         }      
         if(stat == SpawnStat.WATTING)
         {
@@ -129,7 +136,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void CompleteStageEnemies()
     {
-        Debug.Log("StageEnemies COMPLETED");
+        //Debug.Log("StageEnemies COMPLETED");
         stageEnemiesCountdown = timeBetweenStageEnemies;
         if(currentStageEnemies + 1 > waves[currentWave].stage[currentStage].stageEnemies.Length -1)
         {
@@ -144,7 +151,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void CompleteStage()
     {
-        Debug.Log("STAGE COMPLETED");
+        //Debug.Log("STAGE COMPLETED");
         stageCountdown = timeBetweenStage;
         if(currentStage + 1 > waves[currentWave].stage.Length -1)
         {           

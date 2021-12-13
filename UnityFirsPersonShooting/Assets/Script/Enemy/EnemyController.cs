@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform mainBuilding;
     [SerializeField] private Transform BoomCarryPos;
     [SerializeField] private Transform player;
+    public bool HaveBoom;
     public Transform BoomDrop;
     [SerializeField] private Vector3 currentTarget;
 
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         player = PlayerMovement.instance;
-        mainBuilding = GameManager.instance.mainbuild;
+        mainBuilding = MainBuileding.instance;
         agent = GetComponent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
         boomIv = new Boom[1];
@@ -69,6 +70,7 @@ public class EnemyController : MonoBehaviour
         if(collider.gameObject.tag == "Boom")
         {
             GameManager.instance.isboomTaking = true;
+            HaveBoom = true;
             //Debug.Log("boom pick up");
             Boom newboom = collider.transform.GetComponent<ItemObject>().item as Boom;
             boomIv[0] = newboom;

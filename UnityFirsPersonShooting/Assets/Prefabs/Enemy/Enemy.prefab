@@ -272,7 +272,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.28
-  m_Speed: 4
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -299,6 +299,7 @@ MonoBehaviour:
   mainBuilding: {fileID: 0}
   BoomCarryPos: {fileID: 8202555806281885665}
   player: {fileID: 0}
+  HaveBoom: 0
   BoomDrop: {fileID: 8202555805556731194}
   currentTarget: {x: 0, y: 0, z: 0}
   alreadyAttacked: 0
