@@ -19,6 +19,7 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField]private int secondaryCurrentTotalAmmo;
     /////////////////////////////////////////////////////////////
 
+    [SerializeField]private GameObject BloodPS = null;
     
     private Camera cam;
     private Inventory inventory;
@@ -62,10 +63,14 @@ public class WeaponShooting : MonoBehaviour
         if(Physics.Raycast(ray,out hit,currentWeaponRange))
         {
             //Debug.Log(hit.transform.name);
-            Instantiate(currentWeapon.impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             if(hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<EnemyStats>().DamageCheak(currentWeapon.damage);
+                Instantiate(BloodPS, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            else
+            {
+                Instantiate(currentWeapon.impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
         Instantiate(currentWeapon.muzzleFlashParticles,manager.currentWeaponFlash);

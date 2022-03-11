@@ -383,6 +383,7 @@ MonoBehaviour:
   secondprimaryCurrentTotalAmmo: 0
   secondaryCurrentAmmo: 0
   secondaryCurrentTotalAmmo: 0
+  BloodPS: {fileID: 4724821486093359472, guid: abae3c2d27976f442bcfd5673b505fbc, type: 3}
 --- !u!1 &2436801273120854154
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +652,14 @@ PrefabInstance:
     - target: {fileID: -2427072969323580226, guid: 203740621cc454c4587d2c3197666e70, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2025094057942513529, guid: 203740621cc454c4587d2c3197666e70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.016111026
+      objectReference: {fileID: 0}
+    - target: {fileID: -2025094057942513529, guid: 203740621cc454c4587d2c3197666e70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.1102363
       objectReference: {fileID: 0}
     - target: {fileID: -1526964690268444965, guid: 203740621cc454c4587d2c3197666e70, type: 3}
       propertyPath: m_UpdateWhenOffscreen

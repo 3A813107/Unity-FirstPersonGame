@@ -2432,14 +2432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4770484599621270030, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.016111026
-      objectReference: {fileID: 0}
-    - target: {fileID: 4770484599621270030, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.1102363
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
 --- !u!4 &625630545 stripped
@@ -6911,7 +6903,7 @@ Transform:
   - {fileID: 78636757}
   - {fileID: 187797678}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4156327857239992153
 GameObject:
@@ -28189,7 +28181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7368220601024502305, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7368220601024502305, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
       propertyPath: m_AnchorMax.x
