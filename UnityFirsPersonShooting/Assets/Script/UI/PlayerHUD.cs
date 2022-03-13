@@ -10,6 +10,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private PickUpUI pickupUI;
     [SerializeField] private TargetUI targetUI;
     [SerializeField] private MoneyUI moneyUI;
+    [SerializeField] private MoneyUI StoreMoney;
     public GameObject TargetImfo;
 
     public void UpdateHealth(int currentHealth,int maxHealth)
@@ -55,5 +56,6 @@ public class PlayerHUD : MonoBehaviour
     public void UpdateMoneyUI(int MonryNum)
     {
         moneyUI.UpdateMoney(MonryNum);
+        StoreMoney.UpdateMoney(MonryNum);
     }
 }
