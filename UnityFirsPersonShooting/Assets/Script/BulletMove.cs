@@ -26,5 +26,13 @@ public class BulletMove : MonoBehaviour
         }
     }
 
+    void OnCollosionEnter(Collision col)
+    {
+        if(col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("123");
+            Destroy(this.gameObject);
+        }
+    }
 
 }
