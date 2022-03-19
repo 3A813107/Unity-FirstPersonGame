@@ -18,7 +18,7 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField]private int secondaryCurrentAmmo;
     [SerializeField]private int secondaryCurrentTotalAmmo;
     /////////////////////////////////////////////////////////////
-
+    
     [SerializeField]private GameObject BloodPS = null;
     
     private Camera cam;
@@ -27,6 +27,8 @@ public class WeaponShooting : MonoBehaviour
     private PlayerHUD hud;
     private GunRecoil recoil;
     private Animator anim;
+
+    public GameObject Bullet;
 
     private void Start()
     {
@@ -60,9 +62,10 @@ public class WeaponShooting : MonoBehaviour
 
         float currentWeaponRange = currentWeapon.range;
 
-        if(Physics.Raycast(ray,out hit,currentWeaponRange))
+        if(Physics.Raycast(ray,out hit,Mathf.Infinity))
         {
-            //Debug.Log(hit.transform.name);
+            GameObject tempBullet = Instantiate(Bullet,manager.currentWeaponFlash.position,Quaternion.LookRotation(transform.forward));
+            tempBullet.GetComponent<BulletMove>().hitPoint=hit.point;
             if(hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<EnemyStats>().DamageCheak(currentWeapon.damage);

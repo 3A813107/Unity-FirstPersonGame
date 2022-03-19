@@ -32,6 +32,7 @@ public class StoreUI : MonoBehaviour
             {
                 isTab=!isTab;
                 Store.SetActive(isTab);
+                Cursor.lockState=CursorLockMode.Locked;
                 Cursor.visible=false;
                 GameManager.isPause = false;
             }

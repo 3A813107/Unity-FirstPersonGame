@@ -22,6 +22,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         Shield = MaxShield;
+        Shieldval = Shield;
         Health = maxHealth;
         isDead = false;
         hud=GetComponent<PlayerHUD>();
@@ -48,6 +49,12 @@ public class PlayerStats : MonoBehaviour
     {
         Health = healthToSetTo;
         CheckHealth();
+    }
+
+    public void CheackMaxHealth(int health)
+    {
+        Health+=health;
+        hud.UpdateHealth(Health,maxHealth);
     }
 
 /////////////////////////////////////////////////////////

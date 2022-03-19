@@ -21,7 +21,7 @@ MonoBehaviour:
   magazinSize: 30
   TotalAmmo: 300
   fireRate: 0.1
-  range: 150
+  range: 500
   damage: 3
   weaponType: 1
   weaponStyle: 0

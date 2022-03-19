@@ -11,6 +11,7 @@ public class SkillPoint : MonoBehaviour
     [SerializeField]private int price;
     [SerializeField]private Text PointText;
     [SerializeField]private int LimiltPoint=0;
+    [SerializeField]private int finalPoint=0; 
     public void addPoint()
     {
         if(GameManager.instance.PlayerMoney - spManager.TotalCost >= price)
@@ -35,7 +36,13 @@ public class SkillPoint : MonoBehaviour
 
     public  void  SetLimilt()
     {
+        finalPoint = point-LimiltPoint;
         LimiltPoint = point;
+    }
+
+    public int GetPoint()
+    {
+        return finalPoint;
     }
 
 }
