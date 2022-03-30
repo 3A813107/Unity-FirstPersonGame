@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]private Weapon[] weapons;
+    public int grenadeNum=2;
 
     private WeaponShooting shooting;
 
@@ -19,6 +20,7 @@ public class Inventory : MonoBehaviour
         shooting = GetComponent<WeaponShooting>();
         Eqmanager = GetComponent<EquipmentManager>();
         defaltWeaponSetUp();
+        hud.UpdateGrenadeUI(grenadeNum);
     }
 
     public void AddItem(Weapon newItem)

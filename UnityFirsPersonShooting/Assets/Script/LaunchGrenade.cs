@@ -7,12 +7,15 @@ public class LaunchGrenade : MonoBehaviour
 
     public Transform spawnPoint;
     public GameObject grenade;
+    [SerializeField]private PlayerHUD hud;
+    [SerializeField]private Inventory inventory;
 
     public float throwFoece = 10f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory=GetComponent<Inventory>();
+        hud=GetComponent<PlayerHUD>();
     }
 
     // Update is called once per frame
@@ -20,7 +23,8 @@ public class LaunchGrenade : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            Launch();
+            if(inventory.grenadeNum>0)
+                Launch();
         }
     }
 
@@ -29,6 +33,7 @@ public class LaunchGrenade : MonoBehaviour
         GameObject grenadeInstance = Instantiate(grenade,spawnPoint.position,spawnPoint.rotation);
         Rigidbody rb=grenadeInstance.GetComponent<Rigidbody>();
         rb.AddForce(spawnPoint.forward * throwFoece,ForceMode.VelocityChange);
-
+        inventory.grenadeNum--;
+        hud.UpdateGrenadeUI(inventory.grenadeNum);
     }
 }
