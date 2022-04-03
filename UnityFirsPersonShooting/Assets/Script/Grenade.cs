@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class Grenade : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Grenade : MonoBehaviour
 
     public LayerMask GroundMask;
     public LayerMask EnemyMask;
+
+    public Shake CMshake;
 
     public int damage=20;
 
@@ -31,6 +34,7 @@ public class Grenade : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position,radius);
         
+        CameraShaker.Instance.ShakeOnce(4f,4f,0.5f,1f);
 
         foreach(Collider near in colliders)
         {
@@ -46,7 +50,6 @@ public class Grenade : MonoBehaviour
                 enemy.DamageCheak(damage);
             }
         }
-
         Instantiate(explosionEffect,transform.position,transform.rotation);
         Destroy(gameObject);
     }
