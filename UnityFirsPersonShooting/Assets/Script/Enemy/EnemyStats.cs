@@ -11,7 +11,7 @@ public class EnemyStats : MonoBehaviour
 
     [SerializeField] protected bool isDead;
 
-    private EnemyController controller;
+    private EnemyController_shoot controller;
 
     [SerializeField] private int damage;
     public float attackSpeed;
@@ -30,7 +30,7 @@ public class EnemyStats : MonoBehaviour
         enemyImfo=GetComponent<EnemyObject>().enemyImfo as EnemyImfo;
         EnemySet();
         playerStats=player.GetComponent<PlayerStats>();
-        controller = GetComponent<EnemyController>();
+        controller = GetComponent<EnemyController_shoot>();
     }
 
 

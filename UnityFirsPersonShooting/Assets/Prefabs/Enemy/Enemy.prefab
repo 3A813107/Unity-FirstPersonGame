@@ -205,9 +205,9 @@ GameObject:
   - component: {fileID: 8202555806142210750}
   - component: {fileID: 8202555806142210745}
   - component: {fileID: 8202555806142210744}
-  - component: {fileID: 8202555806142210748}
   - component: {fileID: 8202555806142210749}
   - component: {fileID: 792471228660101120}
+  - component: {fileID: -4053982343560068968}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -284,33 +284,6 @@ NavMeshAgent:
   m_BaseOffset: 1.87
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8202555806142210748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8202555806142210747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43983a78853b12b49abdaf8f35cabe3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainBuilding: {fileID: 0}
-  BoomCarryPos: {fileID: 8202555806281885665}
-  player: {fileID: 0}
-  HaveBoom: 0
-  BoomDrop: {fileID: 8202555805556731194}
-  currentTarget: {x: 0, y: 0, z: 0}
-  alreadyAttacked: 0
-  PlayerInDetectRange: 0
-  PlayerInAttackRange: 0
-  boomIv: []
-  DetectRange: 13.89
-  AttackRange: 4.51
-  wahatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &8202555806142210749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +320,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyImfo: {fileID: 11400000, guid: a960b7911218e9d43b946cd20da9eab0, type: 2}
+--- !u!114 &-4053982343560068968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8202555806142210747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b1f16e051b4f74a834f85b62df4d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainBuilding: {fileID: 0}
+  BoomCarryPos: {fileID: 8202555806281885665}
+  player: {fileID: 0}
+  HaveBoom: 0
+  BoomDrop: {fileID: 8202555805556731194}
+  currentTarget: {x: 0, y: 0, z: 0}
+  alreadyAttacked: 0
+  PlayerInDetectRange: 0
+  PlayerInAttackRange: 0
+  boomIv: []
+  DetectRange: 13.09
+  AttackRange: 5
+  wahatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  bullet: {fileID: 0}
+  shootPoint: {fileID: 0}
+  shootSpeed: 10
+  isShooter: 0
 --- !u!1 &8202555806281885664
 GameObject:
   m_ObjectHideFlags: 0

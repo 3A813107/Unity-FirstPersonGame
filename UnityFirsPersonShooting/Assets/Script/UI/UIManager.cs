@@ -53,6 +53,8 @@ public class UIManager : MonoBehaviour
     public void GotoMainMenu()
     {
         SceneManager.LoadScene("Start Menu");
+        Time.timeScale=1;
+        GameManager.isPause=false;
     }
     public void Quit()
     {
