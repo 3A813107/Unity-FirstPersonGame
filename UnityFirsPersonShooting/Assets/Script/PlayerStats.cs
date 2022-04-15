@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using EZCameraShake;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -18,6 +20,13 @@ public class PlayerStats : MonoBehaviour
     private float Shieldval;//轉整數的代數
 
     public PlayerHUD hud;
+
+    public Image Dmgshiled;
+    public Image Dmghealth;
+    public float ImgTime;
+
+    public float targetAplpha = 0.4f;
+    public float ImgFadaRate;
 
     private void Start()
     {
@@ -65,6 +74,12 @@ public class PlayerStats : MonoBehaviour
             Shield=0;
         Shieldval = Shield;
         ShieldCount = 0;
+        if(Shield!=0)
+        {
+            StartCoroutine(ShieldFlash());
+            CameraShaker.Instance.ShakeOnce(2f,2f,0.5f,0.5f);
+        }
+
     }
 
     private void ShieldRecoveryCheak()
@@ -116,6 +131,8 @@ public class PlayerStats : MonoBehaviour
     {
         int healthAfterDamage = Health - damage;
         SetHealth(healthAfterDamage);
+        StartCoroutine(HealthFlash());
+        CameraShaker.Instance.ShakeOnce(2f,2f,0.5f,0.5f);
     }
     public void Heal(int heal)
     {
@@ -136,4 +153,16 @@ public class PlayerStats : MonoBehaviour
         hud.UpdateMoneyUI(GameManager.instance.PlayerMoney);
     }
 
+    IEnumerator ShieldFlash()
+    {    
+        Dmgshiled.enabled = true;
+        yield return new WaitForSeconds(ImgTime);
+        Dmgshiled.enabled = false;
+    }
+    IEnumerator HealthFlash()
+    {
+        Dmghealth.enabled = true;
+        yield return new WaitForSeconds(ImgTime);
+        Dmghealth.enabled = false;
+    }
 }

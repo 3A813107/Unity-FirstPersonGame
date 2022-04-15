@@ -18,7 +18,7 @@ public class MainBuileding : MonoBehaviour
     {
         if(collider.gameObject.tag == "Enemy")
         {
-            EnemyController enemy = collider.GetComponent<EnemyController>();
+            EnemyController_shoot enemy = collider.GetComponent<EnemyController_shoot>();
             if(enemy.HaveBoom)
             {
                 loseUI.Lose();
