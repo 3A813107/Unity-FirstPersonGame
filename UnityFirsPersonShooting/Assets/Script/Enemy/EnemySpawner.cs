@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        hud = GetComponent<LevelHUD>(); 
+        hud = GetComponent<LevelHUD>();
         waveCountdown = timeBetweenWave;
         isLevelEnd = false;
         isStageEnemies = false;

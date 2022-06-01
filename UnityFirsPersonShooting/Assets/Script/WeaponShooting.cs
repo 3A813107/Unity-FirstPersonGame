@@ -30,6 +30,8 @@ public class WeaponShooting : MonoBehaviour
 
     public GameObject Bullet;
 
+    public AudioSource aud;
+
     private void Start()
     {
         canShoot_swap=false;
@@ -40,6 +42,7 @@ public class WeaponShooting : MonoBehaviour
         manager = GetComponent<EquipmentManager>();
         anim = GetComponentInChildren<Animator>();
         recoil = GetComponentInChildren<GunRecoil>();
+        aud = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -93,6 +96,7 @@ public class WeaponShooting : MonoBehaviour
                 UseAmmo((int)currentWeapon.weaponStyle,1,0);
                 recoil.RecoilFire();
                 RaycastShoot(currentWeapon);
+                aud.PlayOneShot(currentWeapon.shot_sound,0.06f);
             }
         }    
 

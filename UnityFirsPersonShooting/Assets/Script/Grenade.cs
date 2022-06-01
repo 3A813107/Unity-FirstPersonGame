@@ -20,7 +20,15 @@ public class Grenade : MonoBehaviour
 
     public int damage=20;
 
+    public AudioSource aud;
+    public AudioClip sound;
+
     [SerializeField]private bool canExplode=false;
+
+    void Start()
+    {
+        aud = GetComponent<AudioSource>();
+    }
     void Update()
     {
        Cheak(); 
@@ -51,7 +59,8 @@ public class Grenade : MonoBehaviour
             }
         }
         Instantiate(explosionEffect,transform.position,transform.rotation);
-        Destroy(gameObject);
+        aud.PlayOneShot(sound,0.08f);
+        Destroy(gameObject,1f);
     }
 
     private void Cheak()

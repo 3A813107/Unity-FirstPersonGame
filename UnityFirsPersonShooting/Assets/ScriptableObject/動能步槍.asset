@@ -25,6 +25,7 @@ MonoBehaviour:
   damage: 3
   weaponType: 1
   weaponStyle: 0
+  shot_sound: {fileID: 8300000, guid: fdc10d0f84e13d04b82a5799ba667c44, type: 3}
   recoilX: -1
   recoilY: 1
   recoilZ: 0.35

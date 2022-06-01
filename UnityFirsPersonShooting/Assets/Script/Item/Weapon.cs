@@ -15,6 +15,8 @@ public class Weapon : Item
     public int damage;
     public WeaponType weaponType;
     public WeaponStyle weaponStyle;
+    public AudioClip shot_sound;
+
 
     [Header("後座力")]
     [Tooltip("垂直後座力")]
