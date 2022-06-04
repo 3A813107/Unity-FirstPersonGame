@@ -59,7 +59,7 @@ public class Grenade : MonoBehaviour
             }
         }
         Instantiate(explosionEffect,transform.position,transform.rotation);
-        aud.PlayOneShot(sound,0.08f);
+        aud.PlayOneShot(sound);
         Destroy(gameObject,0.6f);
     }
 

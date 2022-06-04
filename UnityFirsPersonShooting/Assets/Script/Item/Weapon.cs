@@ -16,6 +16,7 @@ public class Weapon : Item
     public WeaponType weaponType;
     public WeaponStyle weaponStyle;
     public AudioClip shot_sound;
+    public AudioClip reload_sound;
 
 
     [Header("後座力")]

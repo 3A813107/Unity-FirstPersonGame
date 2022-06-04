@@ -20,12 +20,13 @@ MonoBehaviour:
   impactEffect: {fileID: 7210549043672787841, guid: eb72f81116507fa4ca2436e25baa520e, type: 3}
   magazinSize: 12
   TotalAmmo: 60
-  fireRate: 0.35
+  fireRate: 0.2
   range: 500
   damage: 5
   weaponType: 0
   weaponStyle: 2
   shot_sound: {fileID: 8300000, guid: d7dd9c73ec3c12445beb084d1a451d18, type: 3}
+  reload_sound: {fileID: 8300000, guid: 686f7def8f0384f409679fa9d124c6bb, type: 3}
   recoilX: -2.5
   recoilY: 1
   recoilZ: 0.12

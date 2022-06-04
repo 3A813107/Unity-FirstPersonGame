@@ -222,6 +222,7 @@ public class WeaponShooting : MonoBehaviour
     {
         if(canReload)
         {
+            Weapon currentWeapon = inventory.GetItem(manager.currentEquippedWeapon);
             if(style == 0)
             {
                 int ammoToReload_primary = inventory.GetItem(0).magazinSize - primaryCurrentAmmo;
@@ -247,6 +248,7 @@ public class WeaponShooting : MonoBehaviour
                     }
                     anim.SetTrigger("reload");
                     manager.currrentAnim.SetTrigger("reload");
+                    aud.PlayOneShot(currentWeapon.reload_sound,0.2f);
                 }
             }
 
@@ -275,6 +277,7 @@ public class WeaponShooting : MonoBehaviour
                     }
                     anim.SetTrigger("reload");
                     manager.currrentAnim.SetTrigger("reload");
+                    aud.PlayOneShot(currentWeapon.reload_sound,0.2f);
                 }
             }
 
@@ -292,6 +295,7 @@ public class WeaponShooting : MonoBehaviour
                 ChackCanShoot(style);
                 anim.SetTrigger("reload");
                 manager.currrentAnim.SetTrigger("reload");
+                aud.PlayOneShot(currentWeapon.reload_sound,0.4f);
             }
         }
 
