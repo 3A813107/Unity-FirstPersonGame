@@ -60,7 +60,7 @@ public class Grenade : MonoBehaviour
         }
         Instantiate(explosionEffect,transform.position,transform.rotation);
         aud.PlayOneShot(sound,0.08f);
-        Destroy(gameObject,1f);
+        Destroy(gameObject,0.6f);
     }
 
     private void Cheak()

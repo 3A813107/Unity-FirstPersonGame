@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: "\u9060\u7A0B\u5C0F\u5175"
   Hp: 20
   Shiled: 5
-  Damage: 80
+  Damage: 100
   AttackSpeed: 1.5

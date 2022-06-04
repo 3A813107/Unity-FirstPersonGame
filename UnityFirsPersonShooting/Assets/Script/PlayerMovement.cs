@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public GameObject footstep;
+
     [Header("Animation")]
     private Animator anim;
 
@@ -74,6 +76,14 @@ public class PlayerMovement : MonoBehaviour
         float z= Input.GetAxisRaw("Vertical");
         moveDirection = transform.right * x + transform.forward*z;
         controller.Move(moveDirection * Speed*Time.deltaTime);
+        if(x != 0 || z != 0)
+        {
+            footstep.SetActive(true);
+        }
+        else
+        {
+            footstep.SetActive(false);
+        }
     }
     private void GroundCheak()
     {
@@ -84,10 +94,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S))
         {
+            footstep.GetComponent<AudioSource>().pitch=1.3f;
             Speed=RunSpeed;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
+            footstep.GetComponent<AudioSource>().pitch=0.9f;
             Speed= WalkSpeed;
         }
     }

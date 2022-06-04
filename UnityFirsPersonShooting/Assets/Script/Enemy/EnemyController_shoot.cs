@@ -30,6 +30,8 @@ public class EnemyController_shoot : MonoBehaviour
 
     public bool isShooter=false;
 
+    private Animator anim = null;
+
     private void Start()
     {
         player = PlayerMovement.instance;
@@ -37,6 +39,8 @@ public class EnemyController_shoot : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
         boomIv = new Boom[1];
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -52,6 +56,7 @@ public class EnemyController_shoot : MonoBehaviour
     {
         TargetCheak();
         agent.SetDestination(currentTarget);  
+        anim.SetFloat("Speed",1f, 0.3f,Time.deltaTime);
         //RotateToTarget();
     }
 
@@ -64,6 +69,7 @@ public class EnemyController_shoot : MonoBehaviour
 
     private void AttackPlayer(PlayerStats statsToDamage)
     {
+        anim.SetTrigger("Attack");
         stats.DealDamage(statsToDamage);
     }
 
@@ -96,6 +102,7 @@ public class EnemyController_shoot : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        anim.SetFloat("Speed",1f, 0.3f,Time.deltaTime);
     }
     private void AttackPlayer()
     {
