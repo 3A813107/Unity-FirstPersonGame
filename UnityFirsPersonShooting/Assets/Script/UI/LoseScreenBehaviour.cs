@@ -13,6 +13,7 @@ public class LoseScreenBehaviour : MonoBehaviour
     public void Lose()
     {
         GameManager.isPause = true;
+        GameManager.instance.Lose = true;
         Cursor.lockState = CursorLockMode.None;
         HUD.SetActive(false);
         LosScreen.SetActive(true);
@@ -22,6 +23,7 @@ public class LoseScreenBehaviour : MonoBehaviour
     public void LoadLevel_01()
     {
         GameManager.isPause = false;
+        GameManager.instance.Lose = false;
         GameManager.instance.isboomTaking=false;
         GameManager.instance.PlayerMoney = 0;
         GameManager.instance.WaveKillNum = 0;

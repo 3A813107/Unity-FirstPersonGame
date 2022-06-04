@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y=Mathf.Sqrt(jumpHight * -2f *gravity);
+            footstep.SetActive(false);
         }
     }
     private void Move()
@@ -76,14 +77,6 @@ public class PlayerMovement : MonoBehaviour
         float z= Input.GetAxisRaw("Vertical");
         moveDirection = transform.right * x + transform.forward*z;
         controller.Move(moveDirection * Speed*Time.deltaTime);
-        if(x != 0 || z != 0)
-        {
-            footstep.SetActive(true);
-        }
-        else
-        {
-            footstep.SetActive(false);
-        }
     }
     private void GroundCheak()
     {
@@ -94,12 +87,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S))
         {
-            footstep.GetComponent<AudioSource>().pitch=1.3f;
             Speed=RunSpeed;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
-            footstep.GetComponent<AudioSource>().pitch=0.9f;
             Speed= WalkSpeed;
         }
     }
@@ -109,14 +100,19 @@ public class PlayerMovement : MonoBehaviour
         if(moveDirection == Vector3.zero)
         {
             anim.SetFloat("Speed",0,0.1f,Time.deltaTime);
+            footstep.SetActive(false);
         }
         else if(moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
             anim.SetFloat("Speed",0.5f,0.1f,Time.deltaTime);
+            footstep.SetActive(true);
+            footstep.GetComponent<AudioSource>().pitch=0.9f;
         }
         else if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.S))
         {
             anim.SetFloat("Speed",1f,0.1f,Time.deltaTime);
+            footstep.SetActive(true);
+            footstep.GetComponent<AudioSource>().pitch=1.3f;
         }
     }
 

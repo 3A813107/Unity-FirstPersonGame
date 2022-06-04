@@ -388,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35976851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.4, y: 0, z: 28.3}
+  m_LocalPosition: {x: -4.05, y: 0, z: 42.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1377888439}
@@ -884,6 +884,7 @@ MonoBehaviour:
   WaveKillNum: 0
   currentBoomPos: {x: 128.5, y: 1, z: 326.2}
   BoomPos: {x: 0, y: 0, z: 0}
+  Lose: 0
   playerPrefab: {fileID: 0}
   SpawnPoint: {fileID: 0}
 --- !u!4 &116116257
@@ -1598,6 +1599,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Container_02_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 102886, guid: a366be596fd1924488b647425e458433, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102886, guid: a366be596fd1924488b647425e458433, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 450782, guid: a366be596fd1924488b647425e458433, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -1666,6 +1675,14 @@ PrefabInstance:
     - target: {fileID: 116448, guid: 8795553cb16bf3940892b7adf8761504, type: 3}
       propertyPath: m_Name
       value: Container_01_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: 8795553cb16bf3940892b7adf8761504, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: 8795553cb16bf3940892b7adf8761504, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 446728, guid: 8795553cb16bf3940892b7adf8761504, type: 3}
       propertyPath: m_RootOrder
@@ -2101,8 +2118,8 @@ GameObject:
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &277129630
 Transform:
@@ -3107,8 +3124,8 @@ GameObject:
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &460028719
 Transform:
@@ -3928,6 +3945,10 @@ PrefabInstance:
       propertyPath: PauseCanvas
       value: 
       objectReference: {fileID: 1541801122}
+    - target: {fileID: 2436801271565386029, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.23
+      objectReference: {fileID: 0}
     - target: {fileID: 2436801273103472032, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
       propertyPath: moneyUI
       value: 
@@ -4016,10 +4037,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2436801273103472060, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: m_Height
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436801273103472060, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: m_Center.y
+      value: 0.37
+      objectReference: {fileID: 0}
     - target: {fileID: 2436801273103472061, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8412951793759246694, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: switch_snd
+      value: 
+      objectReference: {fileID: 8300000, guid: a14529fd7c608734187ed507dd3c737c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
 --- !u!4 &617942855 stripped
@@ -5299,7 +5332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803619250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.52, y: 0, z: 20.46}
+  m_LocalPosition: {x: -11.07, y: 0, z: 23.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1377888439}
@@ -5380,6 +5413,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
       propertyPath: m_Name
       value: house (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
@@ -6251,6 +6292,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: house (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee2fc7fb895e374297f1f416aa34329, type: 3}
 --- !u!1 &942790407 stripped
@@ -6721,7 +6770,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8393,8 +8442,8 @@ MonoBehaviour:
         enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
       - EnemyName: 1
         delay: 1
-        enemiesAmount: 4
-        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+        enemiesAmount: 2
+        enemy: {fileID: 7203414649701952945, guid: 46cca755278bb174e8df4eb18f71f5fa, type: 3}
   - WaveName: 2
     stage:
     - StageName: 1
@@ -10589,6 +10638,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Container_01_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 446728, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -12524,6 +12581,14 @@ PrefabInstance:
     - target: {fileID: 2099501361357959360, guid: 8636834d88b0f9b4fb794463da155fb6, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099501361357959360, guid: 8636834d88b0f9b4fb794463da155fb6, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099501361357959360, guid: 8636834d88b0f9b4fb794463da155fb6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8636834d88b0f9b4fb794463da155fb6, type: 3}
@@ -33884,6 +33949,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: house1
       objectReference: {fileID: 0}
+    - target: {fileID: 7970719678318634876, guid: dd87c20a1e79b3c478fd76477f66c115, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970719678318634876, guid: dd87c20a1e79b3c478fd76477f66c115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd87c20a1e79b3c478fd76477f66c115, type: 3}
 --- !u!1001 &7368220602258025182
@@ -34222,6 +34295,14 @@ PrefabInstance:
     - target: {fileID: 2970183322267721568, guid: 9d0d61993c6ef8a4e8946047f090d988, type: 3}
       propertyPath: m_Name
       value: house2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970183322267721568, guid: 9d0d61993c6ef8a4e8946047f090d988, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970183322267721568, guid: 9d0d61993c6ef8a4e8946047f090d988, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d0d61993c6ef8a4e8946047f090d988, type: 3}

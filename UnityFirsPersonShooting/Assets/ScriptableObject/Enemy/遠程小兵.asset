@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53077ed1bb7c098448c1a762a9d61bc6, type: 3}
   m_Name: "\u9060\u7A0B\u5C0F\u5175"
   m_EditorClassIdentifier: 
-  Name: "\u9060\u7A0B\u5C0F\u5175"
+  Name: "\u5C04\u64CA\u8005"
   Hp: 20
   Shiled: 5
   Damage: 100

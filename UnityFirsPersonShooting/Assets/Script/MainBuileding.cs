@@ -21,6 +21,8 @@ public class MainBuileding : MonoBehaviour
     public GameObject explosionEffect;
     public AudioSource aud;
     public AudioClip sound;
+
+    
     void Start()
     {
         aud = GetComponent<AudioSource>();

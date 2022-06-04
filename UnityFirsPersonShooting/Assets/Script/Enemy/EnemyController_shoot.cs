@@ -138,6 +138,7 @@ public class EnemyController_shoot : MonoBehaviour
 
     private void ShootPlayer()
     {
+        anim.SetTrigger("Attack");
         GameObject currentBullet = Instantiate(bullet,shootPoint.position,shootPoint.rotation);
         Rigidbody rig = currentBullet.GetComponent<Rigidbody>();
         rig.AddForce(transform.forward*shootSpeed,ForceMode.VelocityChange);

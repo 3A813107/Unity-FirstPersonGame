@@ -190,8 +190,12 @@ public class EnemySpawner : MonoBehaviour
     {
         isLevelEnd = true;
         currentWave = 0;
-        Debug.Log("通關");
-        winUI.Win();
+        if(!GameManager.instance.Lose)
+        {
+            Debug.Log("通關");
+            winUI.Win();
+        }
+
     }
 
     private void WaveTimeCheak()

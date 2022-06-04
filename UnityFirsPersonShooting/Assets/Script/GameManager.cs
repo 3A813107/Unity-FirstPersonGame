@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public Vector3 currentBoomPos;
     public Vector3 BoomPos;
+    public bool Lose = false;
     
     public GameObject playerPrefab;
     public Transform SpawnPoint;

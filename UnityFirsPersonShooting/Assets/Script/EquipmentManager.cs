@@ -18,6 +18,8 @@ public class EquipmentManager : MonoBehaviour
     private GunRecoil recoil;
 
     public Weapon defaultWeapon = null;
+    public AudioSource aud;
+    public AudioClip switch_snd;
 
     private void Start()
     {
@@ -26,6 +28,7 @@ public class EquipmentManager : MonoBehaviour
         hud = GetComponent<PlayerHUD>();
         shooting = GetComponent<WeaponShooting>();
         recoil = GetComponentInChildren<GunRecoil>();
+        aud = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -34,17 +37,20 @@ public class EquipmentManager : MonoBehaviour
         {
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(0));
+            aud.PlayOneShot(switch_snd,0.1f);
         }
         if(Input.GetKeyDown(KeyCode.Alpha2) && currentEquippedWeapon !=1 && inventory.GetItem(1) != null && shooting.canShoot_swap && shooting.canReload)
         {          
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(1));
+            aud.PlayOneShot(switch_snd,0.1f);
         }
         if(Input.GetKeyDown(KeyCode.Alpha3) && currentEquippedWeapon !=2&& inventory.GetItem(2) != null && shooting.canShoot_swap && shooting.canReload)
         {
             UnEquipWeapon();
             EquipWeapon(inventory.GetItem(2));
             shooting.AddAmmo((int)defaultWeapon.weaponStyle,0,0);
+            aud.PlayOneShot(switch_snd,0.1f);
         }
 
     }
