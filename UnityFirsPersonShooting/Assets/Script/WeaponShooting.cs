@@ -31,6 +31,7 @@ public class WeaponShooting : MonoBehaviour
     public GameObject Bullet;
 
     public AudioSource aud;
+    public AudioClip hit_snd;
 
     private void Start()
     {
@@ -71,6 +72,7 @@ public class WeaponShooting : MonoBehaviour
             tempBullet.GetComponent<BulletMove>().hitPoint=hit.point;
             if(hit.transform.tag == "Enemy")
             {
+                aud.PlayOneShot(hit_snd,0.5f);
                 hit.transform.GetComponent<EnemyStats>().DamageCheak(currentWeapon.damage);
                 Instantiate(BloodPS, hit.point, Quaternion.LookRotation(hit.normal));
             }

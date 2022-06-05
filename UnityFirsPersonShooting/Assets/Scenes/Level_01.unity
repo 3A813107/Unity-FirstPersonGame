@@ -4049,6 +4049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7855394808225250722, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: hit_snd
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e3afa1873b6de2448d39ac8fdd73c1e, type: 3}
     - target: {fileID: 8412951793759246694, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
       propertyPath: switch_snd
       value: 
