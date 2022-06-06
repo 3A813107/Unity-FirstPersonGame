@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327875817554808928}
   - component: {fileID: 8551889756524268058}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u52D5\u80FD\u6B65\u69CD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1459131279536458501}
   - component: {fileID: 5986557460041888277}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3865680827895656287}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: magazine_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 891052044073587406}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163238804389386719}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: flash point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6700955928876302590}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5317342994478470761}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946358046427517039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: grip_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3241817783100190579}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: trigger_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5967116610823147856}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

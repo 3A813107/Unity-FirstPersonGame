@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2529424231321566918}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: flash point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850895890390400416}
   - component: {fileID: 1563299689537923034}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8F9B\u4EA5\u9583\u96FB\u69CD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8584000040180262597}
   - component: {fileID: 1071064095764992091}
   - component: {fileID: 8924765523114396804}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 1792948232463401082}
   - component: {fileID: 1054700973128688142}
   - component: {fileID: 2821780987627957396}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

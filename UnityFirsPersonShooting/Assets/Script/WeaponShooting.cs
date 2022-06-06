@@ -47,12 +47,12 @@ public class WeaponShooting : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift) && !GameManager.isPause)
+        if(Input.GetKey(KeyCode.Mouse0) && !Input.GetKey(KeyCode.LeftShift) && !GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             Shoot();
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && !GameManager.isPause)
+        if(Input.GetKeyDown(KeyCode.R) && !GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             Reload(manager.currentEquippedWeapon);
         }
@@ -233,7 +233,6 @@ public class WeaponShooting : MonoBehaviour
                 {
                     if(primaryCurrentAmmo == inventory.GetItem(0).magazinSize)
                     {
-                        Debug.Log("彈藥是滿的");
                         return;                    
                     }
                     if(primaryCurrentTotalAmmo < ammoToReload_primary)
@@ -262,7 +261,6 @@ public class WeaponShooting : MonoBehaviour
                 {
                     if(secondprimaryCurrentAmmo == inventory.GetItem(1).magazinSize)
                     {
-                        Debug.Log("彈藥是滿的");
                         return;
                     }
                     if(primaryCurrentTotalAmmo < ammoToReload_secondprimary)
@@ -289,7 +287,6 @@ public class WeaponShooting : MonoBehaviour
 
                 if(secondaryCurrentAmmo == inventory.GetItem(2).magazinSize)
                 {
-                    Debug.Log("彈藥是滿的");
                     return;
                 }                
                 AddAmmo(style,ammoToReload_secondary,0);

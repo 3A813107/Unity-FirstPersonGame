@@ -47,9 +47,17 @@ public class EnemyController_shoot : MonoBehaviour
     {
         PlayerInDetectRange = Physics.CheckSphere(transform.position,DetectRange,wahatIsPlayer);
         PlayerInAttackRange = Physics.CheckSphere(transform.position,AttackRange,wahatIsPlayer);
-        if(!PlayerInDetectRange && !PlayerInAttackRange) MoveToMainBuilding();
-        if(PlayerInDetectRange && !PlayerInAttackRange && GameManager.instance.isboomTaking) ChasePlayer();
-        if(PlayerInDetectRange && PlayerInAttackRange && GameManager.instance.isboomTaking) AttackPlayer();
+        if(!GameManager.instance.PlayerDie)
+        {
+            if(!PlayerInDetectRange && !PlayerInAttackRange) MoveToMainBuilding();
+            if(PlayerInDetectRange && !PlayerInAttackRange && GameManager.instance.isboomTaking) ChasePlayer();
+            if(PlayerInDetectRange && PlayerInAttackRange && GameManager.instance.isboomTaking) AttackPlayer();
+        }
+        else
+        {
+            MoveToMainBuilding();
+        }
+
     }
 
     private void MoveToMainBuilding()

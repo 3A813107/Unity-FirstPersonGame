@@ -21,7 +21,7 @@ public class LaunchGrenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q) && !GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             if(inventory.grenadeNum>0)
                 Launch();

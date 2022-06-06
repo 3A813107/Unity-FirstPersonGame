@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour
     public Vector3 BoomPos;
     public bool Lose = false;
     
-    public GameObject playerPrefab;
-    public Transform SpawnPoint;
+    public bool PlayerDie = false;
 
+    public float respawnTime = 5f;
     private void Awake()
     {
         if(instance != null)
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        Instantiate(playerPrefab, SpawnPoint.position,Quaternion.identity);
+
     }
 
 }

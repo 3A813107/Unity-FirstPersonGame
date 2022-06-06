@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]private GameObject hudCanvas = null;
     [SerializeField]private GameObject PauseCanvas = null;
+    [SerializeField]private GameObject RespawnCanvas = null;
 
     private void Start()
     {
@@ -15,11 +16,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !GameManager.isPause)
+        if(Input.GetKeyDown(KeyCode.P) && !GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             SetActivePause(true);
         }
-        else if(Input.GetKeyDown(KeyCode.P) && GameManager.isPause)
+        else if(Input.GetKeyDown(KeyCode.P) && GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             SetActivePause(false);
         }
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour
     {
         hudCanvas.SetActive(state);
         PauseCanvas.SetActive(!state);
+        RespawnCanvas.SetActive(!state);
     }
 
     public void SetActivePause(bool state)
@@ -45,9 +47,12 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
             LockCousor();
         }    
-
-
         GameManager.isPause=state;    
+    }
+
+    public void SetActiveRespawn(bool state)
+    {
+        RespawnCanvas.SetActive(state);
     }
 
     public void GotoMainMenu()

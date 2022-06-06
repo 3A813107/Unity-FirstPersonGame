@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     private float Shieldval;//轉整數的代數
 
     public PlayerHUD hud;
+    public CharacterController controller;
 
     public Image Dmgshiled;
     public Image Dmghealth;
@@ -27,6 +28,12 @@ public class PlayerStats : MonoBehaviour
 
     public float targetAplpha = 0.4f;
     public float ImgFadaRate;
+    public GameObject gameHud;
+    public Camera cam;
+    public Transform respawnPoint;
+    [SerializeField]private UIManager ui;
+    public ReSpawnUI reui;
+    public float respawnTimeCounter;
 
     private void Start()
     {
@@ -35,12 +42,18 @@ public class PlayerStats : MonoBehaviour
         Health = maxHealth;
         isDead = false;
         hud=GetComponent<PlayerHUD>();
+        controller= GetComponent<CharacterController>();
+        ui=GetComponent<UIManager>();
+        respawnTimeCounter = GameManager.instance.respawnTime;
     }
 
     private void Update()
     {               
         ShieldRecoveryCheak();
+        if(isDead)
+            RespawnCheak();  
     }
+
     public void CheckHealth()
     {
         if(Health <= 0)
@@ -143,10 +156,13 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        //Destroy(gameObject);
-        //GameManager.instance.SpawnPlayer();
+        GameManager.instance.PlayerDie = isDead;
+        controller.enabled = false;
+        gameHud.SetActive(false);
+        cam.cullingMask = ~(1 << 3);
+        ui.SetActiveRespawn(true);
     }
-
+    
     public void GetMoney(int Num)
     {
         GameManager.instance.PlayerMoney+=Num;
@@ -164,5 +180,35 @@ public class PlayerStats : MonoBehaviour
         Dmghealth.enabled = true;
         yield return new WaitForSeconds(ImgTime);
         Dmghealth.enabled = false;
+    }
+
+    public void Respawn()
+    {
+        Health = maxHealth;
+        Shield = MaxShield;
+        hud.UpdateHealth(Health,maxHealth);
+        hud.UpdateShield(Shield,MaxShield);
+        isDead = false;
+        GameManager.instance.PlayerDie = isDead;
+        controller.enabled = true;
+        gameHud.SetActive(true);
+        cam.cullingMask = -1;
+        transform.position = respawnPoint.transform.position;
+        Physics.SyncTransforms();
+        ui.SetActiveRespawn(false);
+        respawnTimeCounter = GameManager.instance.respawnTime;
+    }
+
+    private void RespawnCheak()
+    {
+        if(respawnTimeCounter > 0)
+        {
+            respawnTimeCounter -= Time.deltaTime;
+            reui.UpdateRespawnTimer(respawnTimeCounter);
+        }
+        else
+        {
+            Respawn();
+        }
     }
 }

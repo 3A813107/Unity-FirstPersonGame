@@ -181,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2436801271565386030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.62, z: 0}
+  m_LocalPosition: {x: 0, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2436801273103472035}
@@ -422,13 +422,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
+  m_Height: 5
   m_Radius: 1.2
   m_SlopeLimit: 45
   m_StepOffset: 1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.37, z: 0}
 --- !u!114 &2436801273103472034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,11 +473,17 @@ MonoBehaviour:
   ShieldRecoveryCoolDown: 2
   ShieldRecoveryRate: 20
   hud: {fileID: 0}
+  controller: {fileID: 0}
   Dmgshiled: {fileID: 0}
   Dmghealth: {fileID: 0}
   ImgTime: 1
   targetAplpha: 0.4
   ImgFadaRate: 1
+  gameHud: {fileID: 0}
+  cam: {fileID: 2436801272380743968}
+  respawnPoint: {fileID: 0}
+  ui: {fileID: 0}
+  respawnTimeCounter: 0
 --- !u!114 &2436801273103472032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +556,8 @@ MonoBehaviour:
   WeaponHolderR: {fileID: 2436801273208234640}
   currrentAnim: {fileID: 0}
   defaultWeapon: {fileID: 11400000, guid: ebe880343da77f34a9d84acb08939339, type: 2}
+  aud: {fileID: 0}
+  switch_snd: {fileID: 8300000, guid: a14529fd7c608734187ed507dd3c737c, type: 3}
 --- !u!114 &7855394808225250722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +582,7 @@ MonoBehaviour:
   BloodPS: {fileID: 4724821486093359472, guid: abae3c2d27976f442bcfd5673b505fbc, type: 3}
   Bullet: {fileID: 5691284187670186992, guid: 57bbacb75e3360a4299a84a1a616aeac, type: 3}
   aud: {fileID: 0}
+  hit_snd: {fileID: 8300000, guid: 4e3afa1873b6de2448d39ac8fdd73c1e, type: 3}
 --- !u!114 &449801182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudCanvas: {fileID: 0}
   PauseCanvas: {fileID: 0}
+  RespawnCanvas: {fileID: 0}
 --- !u!82 &1388378649
 AudioSource:
   m_ObjectHideFlags: 0
