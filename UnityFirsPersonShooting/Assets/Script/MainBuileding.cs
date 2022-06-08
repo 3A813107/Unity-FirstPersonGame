@@ -61,7 +61,7 @@ public class MainBuileding : MonoBehaviour
             }
         }
         Instantiate(explosionEffect,transform.position,transform.rotation);
-        aud.PlayOneShot(sound);
+        aud.PlayOneShot(sound,0.2f);
     }
 
     IEnumerator EndingExplode()
