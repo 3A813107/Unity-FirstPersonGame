@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Intro_01");
     }
+    public void OpenLevel_02()
+    {
+        SceneManager.LoadScene("Intro_02");
+    }
     public void QuitGame()
     {
         Debug.Log("Quit");

@@ -10,6 +10,9 @@ public class LoseScreenBehaviour : MonoBehaviour
     public MoneyUI moneyUI;
     public GameObject LosScreen;
 
+    public AudioClip lose_snd;
+    public AudioSource aud;
+
     public void Lose()
     {
         GameManager.isPause = true;
@@ -17,6 +20,10 @@ public class LoseScreenBehaviour : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         HUD.SetActive(false);
         LosScreen.SetActive(true);
+        aud.clip=lose_snd;
+        aud.volume=0.2f;
+        aud.PlayOneShot(lose_snd);
+        aud.loop=false;
         //Time.timeScale = 0f;
     }
 
@@ -29,6 +36,16 @@ public class LoseScreenBehaviour : MonoBehaviour
         GameManager.instance.WaveKillNum = 0;
         GameManager.instance.currentBoomPos=GameManager.instance.BoomPos;
         SceneManager.LoadScene("Level_01");
+    }
+    public void LoadLevel_02()
+    {
+        GameManager.isPause = false;
+        GameManager.instance.Lose = false;
+        GameManager.instance.isboomTaking=false;
+        GameManager.instance.PlayerMoney = 0;
+        GameManager.instance.WaveKillNum = 0;
+        GameManager.instance.currentBoomPos=GameManager.instance.BoomPos;
+        SceneManager.LoadScene("Level_02");
     }
     public void QuitGame()
     {

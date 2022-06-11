@@ -166,7 +166,7 @@ public class PlayerStats : MonoBehaviour
     public void GetMoney(int Num)
     {
         int i = UnityEngine.Random.Range(0,3);
-        if(i == 1 || i == 2)
+        if(i == 1)
         {
             GameManager.instance.PlayerMoney+=Num;
             hud.UpdateMoneyUI(GameManager.instance.PlayerMoney);

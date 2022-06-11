@@ -27,6 +27,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private WinScreenBehaviour winUI;
     [SerializeField] private int killNum = 0;
     [SerializeField] private  int TotalKillNum=0;
+
+    public GameObject Tips;
     //[SerializeField] private int WavTotalEnemy;
 
 
@@ -49,6 +51,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
+            Tips.SetActive(true);
             if(Input.GetKeyDown(KeyCode.F1))
             {
                 waveCountdown = 5 ;
@@ -56,6 +59,7 @@ public class EnemySpawner : MonoBehaviour
         }      
         if(stat == SpawnStat.WATTING)
         {
+            Tips.SetActive(false);
             if(!EnemiesAllDead())
                 return;
             else
@@ -75,6 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(stat == SpawnStat.SPAWNING)
         {
+            Tips.SetActive(false);
             if(stageCountdown <= 0)
             {
                 if(stageEnemiesCountdown <= 0 && !isStageEnemies)

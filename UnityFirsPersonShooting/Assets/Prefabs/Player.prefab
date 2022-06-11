@@ -483,6 +483,7 @@ MonoBehaviour:
   cam: {fileID: 2436801272380743968}
   respawnPoint: {fileID: 0}
   ui: {fileID: 0}
+  reui: {fileID: 0}
   respawnTimeCounter: 0
 --- !u!114 &2436801273103472032
 MonoBehaviour:
@@ -518,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons: []
-  grenadeNum: 5
+  grenadeNum: 3
 --- !u!114 &4859246155115590133
 MonoBehaviour:
   m_ObjectHideFlags: 0
