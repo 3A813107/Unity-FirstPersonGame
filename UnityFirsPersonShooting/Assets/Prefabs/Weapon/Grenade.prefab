@@ -121,7 +121,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   CMshake: {fileID: 0}
-  damage: 20
+  damage: 10
   aud: {fileID: 0}
   sound: {fileID: 8300000, guid: 0a58395edc84ed4489ce56d51feeb40e, type: 3}
   canExplode: 0

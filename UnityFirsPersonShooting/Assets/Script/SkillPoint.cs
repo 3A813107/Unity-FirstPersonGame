@@ -5,21 +5,37 @@ using UnityEngine.UI;
 
 public class SkillPoint : MonoBehaviour
 {
-    private int point=0;
-
+    public int point=0;
+    public bool isItem;
     [SerializeField]private SkillPointManager spManager;
     [SerializeField]private int price;
-    [SerializeField]private Text PointText;
+    [SerializeField]public Text PointText;
     [SerializeField]private int LimiltPoint=0;
     [SerializeField]private int finalPoint=0; 
     public void addPoint()
     {
-        if(GameManager.instance.PlayerMoney - spManager.TotalCost >= price)
+        if(isItem)
         {
-            spManager.UpdateCost(price);
-            point++;
-            PointText.text=point.ToString();
+            if(GameManager.instance.PlayerMoney - spManager.TotalCost >= price)
+            {
+                if(point < 1)
+                {
+                    spManager.UpdateCost(price);    
+                    point++;                
+                }                   
+                PointText.text=point.ToString();
+            }            
         }
+        else
+        {
+            if(GameManager.instance.PlayerMoney - spManager.TotalCost >= price)
+            {
+                spManager.UpdateCost(price);
+                point++;
+                PointText.text=point.ToString();
+            }
+        }
+
 
     }
 
@@ -36,8 +52,12 @@ public class SkillPoint : MonoBehaviour
 
     public  void  SetLimilt()
     {
-        finalPoint = point-LimiltPoint;
-        LimiltPoint = point;
+        if(!isItem)
+        {
+            finalPoint = point-LimiltPoint;
+            LimiltPoint = point;
+        }
+
     }
 
     public int GetPoint()

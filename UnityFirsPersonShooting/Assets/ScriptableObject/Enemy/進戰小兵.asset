@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u9032\u6230\u5C0F\u5175"
   m_EditorClassIdentifier: 
   Name: "\u771F\u5BE6\u884C\u8005"
-  Hp: 30
+  Hp: 40
   Shiled: 10
   Damage: 20
   AttackSpeed: 1.5

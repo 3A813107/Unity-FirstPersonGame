@@ -994,7 +994,7 @@ MonoBehaviour:
   PlayerInDetectRange: 0
   PlayerInAttackRange: 0
   boomIv: []
-  DetectRange: 20
+  DetectRange: 30
   AttackRange: 5
   wahatIsPlayer:
     serializedVersion: 2
