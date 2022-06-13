@@ -18,6 +18,7 @@ public class LoseScreenBehaviour : MonoBehaviour
         GameManager.isPause = true;
         GameManager.instance.Lose = true;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         HUD.SetActive(false);
         LosScreen.SetActive(true);
         aud.clip=lose_snd;
