@@ -8535,12 +8535,12 @@ MonoBehaviour:
       stageEnemies:
       - EnemyName: 1
         delay: 0.2
-        enemiesAmount: 2
+        enemiesAmount: 3
         enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
       - EnemyName: 1
         delay: 0.2
-        enemiesAmount: 3
-        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+        enemiesAmount: 1
+        enemy: {fileID: 8067524395118019778, guid: ee4d8e5a4f0e6f346a14c2c27c8fd0ee, type: 3}
   - WaveName: 2
     stage:
     - StageName: 1

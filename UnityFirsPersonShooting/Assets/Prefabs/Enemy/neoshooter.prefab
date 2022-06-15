@@ -215,6 +215,7 @@ MonoBehaviour:
   damageText: {fileID: 3362865088362159329, guid: e17126eb4761c534e8fe791bdb7d0cf8, type: 3}
   damageTextPos: {fileID: 7551331771151049651}
   ShieldPower: 0.8
+  isboomHolder: 1
 --- !u!114 &5306527388997661643
 MonoBehaviour:
   m_ObjectHideFlags: 0

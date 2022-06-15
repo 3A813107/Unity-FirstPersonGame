@@ -24,6 +24,8 @@ public class EnemyStats : MonoBehaviour
 
     public float ShieldPower = 0.8f;
 
+    public bool isboomHolder;
+
     private void Start()
     {
         player=PlayerMovement.instance;
@@ -106,6 +108,16 @@ public class EnemyStats : MonoBehaviour
     {
         isDead = true;
         GameManager.instance.WaveKillNum++;
+        if(isboomHolder)
+        {
+            if(controller.boomIv[0]!=null)
+            {
+                GameManager.instance.isboomTaking = false;
+                Instantiate(controller.boomIv[0].PickUpPrefab,controller.BoomDrop.position,controller.BoomDrop.rotation);
+                GameManager.instance.currentBoomPos = transform.position;
+            }
+        }
+
         playerStats.GetMoney(100);
         Destroy(gameObject);
     }
