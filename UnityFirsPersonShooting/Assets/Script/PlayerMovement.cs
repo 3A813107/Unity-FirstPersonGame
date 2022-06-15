@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHight = 3f;
 
-    Vector3 velocity;
+    public Vector3 velocity;
     bool isGrounded;
 
     public GameObject footstep;

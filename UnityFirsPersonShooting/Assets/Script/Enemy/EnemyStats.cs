@@ -106,12 +106,6 @@ public class EnemyStats : MonoBehaviour
     {
         isDead = true;
         GameManager.instance.WaveKillNum++;
-        if(controller.boomIv[0]!=null)
-        {
-            GameManager.instance.isboomTaking = false;
-            Instantiate(controller.boomIv[0].PickUpPrefab,controller.BoomDrop.position,Quaternion.identity);
-            GameManager.instance.currentBoomPos = transform.position;
-        }
         playerStats.GetMoney(100);
         Destroy(gameObject);
     }
