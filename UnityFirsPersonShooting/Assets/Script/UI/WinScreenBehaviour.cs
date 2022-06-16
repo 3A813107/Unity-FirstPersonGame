@@ -41,6 +41,7 @@ public class WinScreenBehaviour : MonoBehaviour
     }
     public void Load_level_Ending()
     {
-
+        SceneManager.LoadScene("Ending");
+        GameManager.isPause = false;
     }
 }
