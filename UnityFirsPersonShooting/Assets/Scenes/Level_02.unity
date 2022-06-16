@@ -3144,6 +3144,10 @@ PrefabInstance:
       propertyPath: RespawnCanvas
       value: 
       objectReference: {fileID: 786205938}
+    - target: {fileID: 2436801272380743974, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: mouseSensitivity
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2436801273103472032, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
       propertyPath: moneyUI
       value: 
@@ -34256,6 +34260,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1931957659}
+    - target: {fileID: 899790535, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
+      propertyPath: m_Text
+      value: "\u6309F1\u8DF3\u904E\u6E96\u5099\u968E\u6BB5"
+      objectReference: {fileID: 0}
     - target: {fileID: 1376848500, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

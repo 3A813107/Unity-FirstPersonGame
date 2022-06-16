@@ -16,11 +16,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && !GameManager.isPause && !GameManager.instance.PlayerDie)
+        if(Input.GetKeyDown(KeyCode.Escape) && !GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             SetActivePause(true);
         }
-        else if(Input.GetKeyDown(KeyCode.P) && GameManager.isPause && !GameManager.instance.PlayerDie)
+        else if(Input.GetKeyDown(KeyCode.Escape) && GameManager.isPause && !GameManager.instance.PlayerDie)
         {
             SetActivePause(false);
         }

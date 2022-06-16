@@ -3596,6 +3596,10 @@ PrefabInstance:
       propertyPath: RespawnCanvas
       value: 
       objectReference: {fileID: 786205938}
+    - target: {fileID: 2436801272380743974, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
+      propertyPath: mouseSensitivity
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2436801273103472032, guid: ff67c7a5b91dd8a4198ef8ac61649596, type: 3}
       propertyPath: moneyUI
       value: 
@@ -8871,30 +8875,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - WaveName: 1
+  - WaveName: 
     stage:
-    - StageName: 1
+    - StageName: 
       stageEnemies:
-      - EnemyName: 1
-        delay: 0.2
-        enemiesAmount: 2
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 6
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 3
         enemy: {fileID: 7203414649701952945, guid: 46cca755278bb174e8df4eb18f71f5fa, type: 3}
-      - EnemyName: 1
-        delay: 0.2
+      - EnemyName: 
+        delay: 1
         enemiesAmount: 3
         enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
-  - WaveName: 2
-    stage:
-    - StageName: 1
-      stageEnemies:
-      - EnemyName: 1
-        delay: 0.2
-        enemiesAmount: 3
-        enemy: {fileID: 7203414649701952945, guid: 46cca755278bb174e8df4eb18f71f5fa, type: 3}
-      - EnemyName: 1
+      - EnemyName: 
         delay: 1
         enemiesAmount: 4
+        enemy: {fileID: 8067524395118019778, guid: ee4d8e5a4f0e6f346a14c2c27c8fd0ee, type: 3}
+  - WaveName: 
+    stage:
+    - StageName: 
+      stageEnemies:
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 6
         enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 3
+        enemy: {fileID: 7203414649701952945, guid: 46cca755278bb174e8df4eb18f71f5fa, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 3
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 4
+        enemy: {fileID: 8067524395118019778, guid: ee4d8e5a4f0e6f346a14c2c27c8fd0ee, type: 3}
+  - WaveName: 
+    stage:
+    - StageName: 
+      stageEnemies:
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 6
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 5
+        enemy: {fileID: 7203414649701952945, guid: 46cca755278bb174e8df4eb18f71f5fa, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 3
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+  - WaveName: 
+    stage:
+    - StageName: 
+      stageEnemies:
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 6
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 5
+        enemy: {fileID: 8067524395118019778, guid: ee4d8e5a4f0e6f346a14c2c27c8fd0ee, type: 3}
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 3
+        enemy: {fileID: 5421769807276999215, guid: 855da5188b42f9846a1a453aa846aeb7, type: 3}
+  - WaveName: 
+    stage:
+    - StageName: 
+      stageEnemies:
+      - EnemyName: 
+        delay: 1
+        enemiesAmount: 10
+        enemy: {fileID: 8067524395118019778, guid: ee4d8e5a4f0e6f346a14c2c27c8fd0ee, type: 3}
   isLevelEnd: 0
   timeBetweenWave: 120
   timeBetweenStage: 5
@@ -34012,6 +34072,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1931957659}
+    - target: {fileID: 899790535, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
+      propertyPath: m_Text
+      value: "\u6309F1\u8DF3\u904E\u6E96\u5099\u968E\u6BB5"
+      objectReference: {fileID: 0}
     - target: {fileID: 1376848500, guid: 6d53528eb4e963e498b99058e303d0ac, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
