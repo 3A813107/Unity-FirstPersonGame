@@ -59,6 +59,16 @@ public class LoseScreenBehaviour : MonoBehaviour
         GameManager.instance.currentBoomPos=GameManager.instance.BoomPos;
         SceneManager.LoadScene("Level_03");
     }
+    public void LoadLevel_04()
+    {
+        GameManager.isPause = false;
+        GameManager.instance.Lose = false;
+        GameManager.instance.isboomTaking=false;
+        GameManager.instance.PlayerMoney = 0;
+        GameManager.instance.WaveKillNum = 0;
+        GameManager.instance.currentBoomPos=GameManager.instance.BoomPos;
+        SceneManager.LoadScene("Level_04");
+    }
     public void QuitGame()
     {
         Debug.Log("Quit");

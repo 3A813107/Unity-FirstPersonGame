@@ -34,4 +34,13 @@ public class WinScreenBehaviour : MonoBehaviour
         SceneManager.LoadScene("Intro_03");
         GameManager.isPause = false;
     }
+    public void Load_level_04()
+    {
+        SceneManager.LoadScene("Intro_04");
+        GameManager.isPause = false;
+    }
+    public void Load_level_Ending()
+    {
+
+    }
 }

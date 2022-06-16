@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y=Mathf.Sqrt(jumpHight * -2f *gravity);
             footstep.SetActive(false);
