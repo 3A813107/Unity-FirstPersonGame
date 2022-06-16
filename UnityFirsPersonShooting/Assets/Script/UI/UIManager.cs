@@ -41,11 +41,13 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 0;
             UnLockCousor();
+            Cursor.visible=true;
         }
         else
         {
             Time.timeScale = 1;
             LockCousor();
+            Cursor.visible=false;
         }    
         GameManager.isPause=state;    
     }
